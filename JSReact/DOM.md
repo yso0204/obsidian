@@ -39,7 +39,7 @@ model이라는 뜻은 모듈이라는 의미도 있는데, 여기서는 문서 �
 
 DOM은 tree 형식의 자료구조를 가지고 있음
 
-![](http://localhost:9425/images/0ee8e096-4cb0-48c6-a4fa-2ba632199355.png)  
+![[Pasted image 20241204225706.png]]
 
 DOM 에 포함된 <p> 태그를 뜯어보면, 자식노드와 속성을 tree 구조로 가지고 있음을 알 수 있음
 
@@ -52,5 +52,3 @@ tree 구조에서 root node를 포함한 모든 개체
 html tag 뿐 아니라 텍스트, 속성 도 모두 node 이며, 이 중에서 HTML tag 를 요소노드(element node) ,  요소 노드 내부 글자를 text 노드라 부르기도 함
 
   
-
-###
