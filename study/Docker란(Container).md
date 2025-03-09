@@ -40,3 +40,4 @@
 
 ## Shipping Containers
 - local에서 image 를 container Registry에 push, 이걸 server에 pull
+  ![[Pasted image 20250309204031.png]]
