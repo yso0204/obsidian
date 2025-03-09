@@ -9,3 +9,7 @@
 ## VM vs Docker
 
 - VM
+  ![[Pasted image 20250309194626.png]]
+  - 여러가지를 다 가지고 있기에 무거움
+
+- o
