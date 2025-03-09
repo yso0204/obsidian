@@ -21,7 +21,7 @@ DOM(Document Object Model) 즉 문서 객체 모델
 
 ### 문서 객체란?
 
-<html> 이나 <body> 같은 html 문서들의 태그를 JavaScript가 이용할 수 있는 객체(object)로  만들면 이것을 문서 객체라고 한다.
+html 이나 body 같은 html 문서들의 태그를 JavaScript가 이용할 수 있는 객체(object)로  만들면 이것을 문서 객체라고 한다.
 
 ### 모델?
 
