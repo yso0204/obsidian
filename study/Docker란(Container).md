@@ -24,4 +24,8 @@
 ![[Pasted image 20250309195058.png]]
 - Docker file
 	> container를 어떻게  만들어야하나?
-	ㅇ 
+
+	순서나, 레시피 
+	- copy files
+	- install dependencies
+	- set env variables
