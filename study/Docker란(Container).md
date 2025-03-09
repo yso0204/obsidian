@@ -37,4 +37,6 @@
 	- 그 당시의 상태를 snap shot 하는 느낌 
 - container
 	- container 안에서 application이 고립적으로 동작한다
-	- 
+
+## Shipping Containers
+- local에서 image 를 container Registry에 push, 이걸 server에 pull
