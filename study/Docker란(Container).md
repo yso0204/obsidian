@@ -34,5 +34,7 @@
 	- 실행하는데 필요한 code
 	- run time 환경
 	- 시스템 툴, 라이브러리 등 모든 세팅
+	- 그 당시의 상태
 - container
+	- container 안에서 application이 고립적으로 동작한다
 	- 
