@@ -30,3 +30,5 @@
 	- install dependencies (어떤 프레임워크나 라이브러리를?)
 	- set env variables (필요한 환경 변수 설정)
 	- Run setuop scripts(어떻게 구동해야 하는지?)
+- Image
+	- 
