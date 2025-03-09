@@ -16,4 +16,6 @@
 - Container
   ![[Pasted image 20250309194731.png]]
   - VM에서 경량화 된 컨셉
-  - 
+  - 각각의 App들을 고립된 환경에서 구동 가능
+  - 컨테이너는 운영체제를 가지지 않고, HOST의 OS를 공유함
+  - Container Engine이 
