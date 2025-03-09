@@ -5,3 +5,7 @@
 	- node
 	- assets
 	- npm, configuration 등등
+
+## VM vs Docker
+
+- VM
