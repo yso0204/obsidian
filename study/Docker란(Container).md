@@ -23,3 +23,5 @@
 ## Docker의 3대 구성 요소
 ![[Pasted image 20250309195058.png]]
 - Docker file
+	> container를 어떻게  만들어야하나?
+	ㅇ 
