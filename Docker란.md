@@ -1,5 +1,3 @@
+> [!NOTE] Docker
+> 어플리케이션을 패킹할 수 있는 툴
 
-> [!NOTE] Title
-> Contents
-
-어플리케이션을 패킹할 수 있는 툴
