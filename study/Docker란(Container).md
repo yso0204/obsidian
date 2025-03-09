@@ -31,4 +31,8 @@
 	- set env variables (필요한 환경 변수 설정)
 	- Run setuop scripts(어떻게 구동해야 하는지?)
 - Image
+	- 실행하는데 필요한 code
+	- run time 환경
+	- 시스템 툴, 라이브러리 등 모든 세팅
+- container
 	- 
