@@ -34,12 +34,11 @@ model이라는 뜻은 모듈이라는 의미도 있는데, 여기서는 문서 �
   
 
 ### DOM의 모형
-
-![[Pasted image 20241204225649.png]]
+![](https://i.imgur.com/8k7DLQ3.png)
 
 DOM은 tree 형식의 자료구조를 가지고 있음
+![](https://i.imgur.com/SQzqIMG.png)
 
-![[Pasted image 20241204225706.png]]
 
 DOM 에 포함된 <p> 태그를 뜯어보면, 자식노드와 속성을 tree 구조로 가지고 있음을 알 수 있음
 
