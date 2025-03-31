@@ -14,14 +14,17 @@
   - 무거운 운영체제를 포함
 
 - Container
-  ![[Pasted image 20250309194731.png]]
+![](https://i.imgur.com/rDAIhzS.png)
+
   - VM에서 경량화 된 컨셉
   - 각각의 App들을 고립된 환경에서 구동 가능
   - 컨테이너는 운영체제를 가지지 않고, HOST의 OS를 공유함
   - Container Engine이 필요한 사항들을 HOST OS를 통해 실행해주는데, 이때 가장 많이 사용되는 것이 Docker Engine임
 
 ## Docker의 3대 구성 요소
-![[Pasted image 20250309195058.png]]
+![](https://i.imgur.com/nLvXdnR.png)
+
+
 - Docker file
 	> container를 어떻게  만들어야하나?
 
