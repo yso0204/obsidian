@@ -9,7 +9,7 @@
 ## VM vs Docker
 
 - VM
-  ![[Pasted image 20250309194626.png]]
+![](https://i.imgur.com/ZHnKfSA.png)
   - 여러가지를 다 가지고 있기에 무거움
   - 무거운 운영체제를 포함
 
