@@ -24,7 +24,6 @@ aliases:
 - CI와 CD는 완벽히 분리된 것이 아닌, 대부분의 회사에서 CI와 CD를 거쳐서 배포하기에 묶어서 부름
 
 ## CI / CD 단계 정리
-![[Pasted image 20250310211553.png]]
-
+![](https://i.imgur.com/Jr7tL65.png)
 - 다양한 툴들
 	- 젠킨스, buildkite 등등 다양한 툴들을 사용
