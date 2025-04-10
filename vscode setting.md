@@ -3,3 +3,7 @@
 
 ### 설치 후
 ![](https://i.imgur.com/xB4DM9D.png)
+![](https://i.imgur.com/hzTiXuV.png)
+
+## live server
+
