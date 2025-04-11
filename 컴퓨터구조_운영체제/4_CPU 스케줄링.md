@@ -9,4 +9,11 @@
 - CPU 집중 프로세스(CPU bound process)
 
 #### CPU burst, I/O burst
-> 쳬
+> CPU를 이용하는 작업을 CPU burst 라고 하며
+> I/O를 이용하는 작업을 I/O burst 라고 한다
+
+이렇듯 프로세스마다 입출력을 , CPU를 써야하는 프로세스들로 나뉘는데 CPU를 차례대로 돌아가며 사용하는 것보다 각각의 상황에 맞게 CPU를 배분하는 것이 더 효율적이다.
+
+이를 위해 OS 는 process  마다 중요도인 우선순위(priority) 를 배분한다.
+
+### 스케줄링 큐
