@@ -108,3 +108,63 @@ orange
 rest에 나머지 값들이 할당된 것을 알 수 있다.
 
 ## 함수
+> 나머지 인자들을 배열로 받아준다.
+```js
+function showAll(name, ...rest) {
+    console.log(`name: ${name}`);
+    console.log(`나머지 인자들:`, rest);
+}
+
+showAll("Mike", "개발자", 20, "서울");
+
+```
+
+
+# 구조분해 + rest/spread 예시
+
+## 사용자 설정 병합하기
+```js
+const defaultOptions = {
+  darkMode: false,
+  fontSize: 14,
+  language: "ko"
+};
+
+const userOptions = {
+  fontSize: 18,
+  language: "en"
+};
+
+const finalOptions = { ...defaultOptions, ...userOptions };
+
+console.log(finalOptions);
+// { darkMode: false, fontSize: 18, language: "en" }
+```
+
+## 구조 분해 + rest
+```js
+const settings = {
+  theme: "dark",
+  font: "Nanum Gothic",
+  layout: "grid",
+  animation: true
+};
+
+const { theme, ...otherSettings } = settings;
+
+console.log(theme);         // dark
+console.log(otherSettings); // { font: "Nanum Gothic", layout: "grid", animation: true }
+
+```
+
+## spread / reset
+```js
+const print = (...rest) => { // rest
+    console.log(rest);
+};
+
+const numbers = [1, 2, 3, 4, 5, 6];
+print(...numbers); // spread
+
+[ 1, 2, 3, 4, 5, 6 ]
+```
