@@ -9,3 +9,8 @@
 원하는 어떠한 작업이 실행되며 성공하면 `resolve` 실패하면 `reject`를 호출한다. 
 
 ![](https://i.imgur.com/22lbroE.png)
+
+promise는 세 가지 상태를 가질 수 있다.
+1. 대기(pending) : 아직 작업이 끝나지 않은 상태
+2. 이행(fulfilled) : 작업이 성공으로 끝난 상태 -> `.then()`으로 결과 받음
+3. 거부(reject) : 작업이 실패한 상태 -> `.catch()`로 에러 처리
