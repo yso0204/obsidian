@@ -62,3 +62,48 @@ workA(10, (resA) => {
 ```
 
 workA -> workB -> workC로 진행되는데 중간 수정도 어렵고 어디까지 callback인지 구별도 어려움
+
+## promise chaining
+> then 메서드를 연속으로 사용하는 방식
+
+
+```js
+const workA = (value) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(value + 5);
+        }, 5000);
+    })
+};
+const workB = (value) => {
+    return new Promise((resovle) => {
+        setTimeout(() => {
+            resovle(value - 3);
+        }, 3000);
+    })
+};
+const workC = (value) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(value + 10);
+        }, 10000);
+    })
+};
+
+workA(10)
+  .then((resA) => {
+    console.log(`workA : ${resA}`);
+    return workB(resA);//Promise를 return 해야 다음 then으로 연결됨
+  })
+  .then((resB) => {
+    console.log(`workB : ${resB}`);
+    return workC(resB);
+  })
+  .then((resC) => {
+    console.log(`workC : ${resC}`);
+  })
+  .catch((err) => {
+    console.error('에러 발생:', err);
+  });
+
+```
