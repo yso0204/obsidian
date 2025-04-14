@@ -29,3 +29,36 @@ promise.then((result) => {
     console.log(error);
 })
 ```
+
+## 콜백 지옥
+> promise를 이용해 자바스크립트 비동기 처리 방식의 문제점 중 하나인 콜백 지옥을 해결 할 수 있다.
+
+```js
+const workA = (value, callback) => {
+    setTimeout(() => {
+        callback(value + 5);
+    }, 5000);
+};
+const workB = (value, callback) => {
+    setTimeout(() => {
+        callback(value - 3);
+    }, 3000);
+};
+const workC = (value, callback) => {
+    setTimeout(() => {
+        callback(value + 10);
+    }, 10000);
+};
+
+workA(10, (resA) => {
+    console.log(`workA : ${resA}`);
+    workB(resA, (resB) => {
+        console.log(`workB : ${resB}`);
+        workC(resB, (resC) => {
+            console.log(`workC : ${resC}`);
+        });
+    });
+});
+```
+
+workA -> workB -> workC로 진행되는데 중간 수정도 어렵고 어디까지 callback인지 구별도 어려움
