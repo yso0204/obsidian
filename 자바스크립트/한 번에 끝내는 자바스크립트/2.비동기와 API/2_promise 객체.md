@@ -14,3 +14,18 @@ promise는 세 가지 상태를 가질 수 있다.
 1. 대기(pending) : 아직 작업이 끝나지 않은 상태
 2. 이행(fulfilled) : 작업이 성공으로 끝난 상태 -> `.then()`으로 결과 받음
 3. 거부(reject) : 작업이 실패한 상태 -> `.catch()`로 에러 처리
+
+```js
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        reject('실패')
+        resolve('성공')
+    }, 1000);
+})
+
+promise.then((result) => {
+    console.log('성공',result);
+}).catch((error) => {
+    console.log(error);
+})
+```
