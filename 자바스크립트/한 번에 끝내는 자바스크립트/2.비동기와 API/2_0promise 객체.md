@@ -266,8 +266,20 @@ p2.then((res) => {
 > promise 클래스에는 5가지의 정적 메서드가 있다
 
 ## Promise.resolve()
-> 
+> 즉시 성공(resolve) 상태의 promise를 생성
+> 비동기가 필요 없지만, promise로 다루고 싶을 때 사용한다
 
-## Promise.
+```js
+const p = Promise.resolve(42);
+
+p.then((v) => {
+  console.log('값:', v); // 값: 42
+});
+```
+- 활용 : 테스트, 초기값 감싸기, 체이닝 시작점으로 사용
+
+## Promise.reject
+> 즉시 실패(reject) 상태의 promise를 생성
+> 일부러 에러를발
 ## Promise.all
 > 여러 개의  promise들을 배열로 받아 동시에 실행시키고 모든 promise가 준비될 때 까지 기다린다.
