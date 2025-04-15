@@ -66,3 +66,28 @@ getData();
 - 예외 처리는 `try...catch`로 감싸는게 일반적이다
 - `await` 앞에 있는 건 Promise 여야 의미가 있다.
 
+## 예시
+```js
+function delayTask(msg, ms) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log(msg);
+      resolve();
+    },ms);
+  });
+}
+
+async function run() {
+  await delayTask('1초 대기 후 실행', 1000);
+  await delayTask('또 1초 후 실행', 1000);
+  await delayTask('마지막 작업', 1000);
+  console.log('작업 완료');
+}
+
+run();
+
+1초 대기 후 실행
+또 1초 후 실행
+마지막 작업
+작업 완료
+```
