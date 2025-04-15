@@ -183,42 +183,9 @@ step1(5)
 `.then(step2)`는 위에 풀어쓴거랑 동일하게 동작하는데
 즉, 함수 이름만 넘겨도 자동으로 호출하는 함수로 바뀐다.
 단, 넘기는 함수는 반드시 `promise`를 반환해야 체이닝이 유지됨
-## 콜백 지옥
-> promise를 이용해 자바스크립트 비동기 처리 방식의 문제점 중 하나인 콜백 지옥을 해결 할 수 있다.
-
-```js
-const workA = (value, callback) => {
-    setTimeout(() => {
-        callback(value + 5);
-    }, 5000);
-};
-const workB = (value, callback) => {
-    setTimeout(() => {
-        callback(value - 3);
-    }, 3000);
-};
-const workC = (value, callback) => {
-    setTimeout(() => {
-        callback(value + 10);
-    }, 10000);
-};
-
-workA(10, (resA) => {
-    console.log(`workA : ${resA}`);
-    workB(resA, (resB) => {
-        console.log(`workB : ${resB}`);
-        workC(resB, (resC) => {
-            console.log(`workC : ${resC}`);
-        });
-    });
-});
-```
-
-workA -> workB -> workC로 진행되는데 중간 수정도 어렵고 어디까지 callback인지 구별도 어려움
 
 ## promise chaining
 > then 메서드를 연속으로 사용하는 방식
-
 
 ```js
 const workA = (value) => {
@@ -260,3 +227,8 @@ workA(10)
   });
 
 ```
+
+## then,catch,finally는 promise를 반환
+> 결국 체이닝과 관련되어 있는데
+> `then()` `catch()` `finally()`는 원래 promise를 수정하지 않고 항상 새로운 promise 객체를 반환한다.
+
