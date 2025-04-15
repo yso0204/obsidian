@@ -280,6 +280,72 @@ p.then((v) => {
 
 ## Promise.reject
 > 즉시 실패(reject) 상태의 promise를 생성
-> 일부러 에러를발
-## Promise.all
-> 여러 개의  promise들을 배열로 받아 동시에 실행시키고 모든 promise가 준비될 때 까지 기다린다.
+> 일부러 에러를 발생시키거나 테스트용으로 사용한다.
+
+```js
+const p = Promise.reject('에러 발생!');
+
+p.catch((err) => {
+  console.log('에러 처리:', err); // 에러 처리: 에러 발생!
+});
+```
+- 활용 : 실패 흐름 테스트, 조건 분기
+## Promise.all(iterable)
+> 여러 개의 Promise를 병렬로 실행하고, **전부 성공하면** 결과 배열을 반환
+> 하나라도 실패하면 `.catch()`로 감
+
+```js
+const p1 = Promise.resolve(1);
+const p2 = Promise.resolve(2);
+const p3 = Promise.resolve(3);
+//const p3 = Promise.reject(3);
+Promise.all([p1, p2, p3])
+  .then((results) => {
+    console.log('결과:', results); // [1, 2, 3]
+  })
+  .catch((err) => {
+    console.error('에러:', err);// 에러 : 3
+  });
+```
+
+- 활용 : 병렬 요청, 전부 완료가 필요할 때(이미지 여러 개 불러 오기 등)
+
+## Promise.allsettled(iterable)
+> all 과는 조금 다르게 모든 Promise들의 성공.실패 결과를 반환한다.
+> 실패하더라도 `.catch`로 넘어가지 않음
+
+```js
+const p1 = new Promise(reseolve => setTimeout(() => {
+    reseolve(1)
+}, 1000));
+const p2 = new Promise((reseolve,reject) => setTimeout(() => {
+    reject(new Error('error 발생'))
+}, 2000));
+const p3 = new Promise(reseolve => setTimeout(() => {
+    reseolve(3)
+}, 4000));
+
+Promise.allSettled([p1, p2, p3])
+    .then((result) => {
+        console.log(result);
+    })
+
+[
+  { status: 'fulfilled', value: 1 },
+  {
+    status: 'rejected',
+    reason: Error: error 발생
+        at Timeout._onTimeout (C:\Users\sahak\OneDrive\바탕 화면\study\js\한번에끝내는자바스크립트\src\index.js:5:12)       
+        at listOnTimeout (node:internal/timers:573:17)
+        at process.processTimers (node:internal/timers:514:7)
+  },
+  { status: 'fulfilled', value: 3 }
+]
+```
+
+- 활용 : 성공,실패 상관없이 전체 결과 확인이 필요할 때
+
+## Promise.race(iterable)
+> 가장 먼저 완료된 Promise 결과를 반환
+> 성공이던 실패든 먼저 끝난 놈이 이김
+
