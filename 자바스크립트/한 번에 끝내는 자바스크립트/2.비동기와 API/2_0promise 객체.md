@@ -63,7 +63,8 @@ increaseAndPrint(0)
 
 ![](https://i.imgur.com/22lbroE.png)
 
-promise는 세 가지 상태를 가질 수 있다.
+# Promise 객체 처리
+>promise는 세 가지 상태를 가질 수 있다.
 1. 대기(pending) : 아직 작업이 끝나지 않은 상태
 2. 이행(fulfilled) : 작업이 성공으로 끝난 상태 -> `.then()`으로 결과 받음
 3. 거부(reject) : 작업이 실패한 상태 -> `.catch()`로 에러 처리
@@ -83,6 +84,10 @@ promise.then((result) => {
 })
 ```
 
+## Promise 함수 등록
+```js
+
+```
 ## 콜백 지옥
 > promise를 이용해 자바스크립트 비동기 처리 방식의 문제점 중 하나인 콜백 지옥을 해결 할 수 있다.
 
