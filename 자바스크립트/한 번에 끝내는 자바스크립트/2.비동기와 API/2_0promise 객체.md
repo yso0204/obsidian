@@ -349,3 +349,38 @@ Promise.allSettled([p1, p2, p3])
 > 가장 먼저 완료된 Promise 결과를 반환
 > 성공이던 실패든 먼저 끝난 놈이 이김
 
+```js
+const fast = new Promise((resolve) => setTimeout(() => resolve('빠름'), 100));
+const slow = new Promise((resolve) => setTimeout(() => resolve('느림'), 1000));
+
+Promise.race([fast, slow]).then((res) => {
+  console.log(res); // 빠름
+});
+
+const failFast = new Promise((_, reject) => setTimeout(() => reject('실패'), 100));
+const slowOK = new Promise((resolve) => setTimeout(() => resolve('정상'), 1000));
+
+Promise.race([failFast, slowOK])
+  .then((res) => console.log(res))
+  .catch((err) => console.error('에러:', err)); // 에러: 실패
+
+```
+- 활용 : 타임 아웃 처리, 응답 중 가장 빠른 것을 사용
+
+## Promise.any(iterable) - ES2021
+> 하나라도 성공하면 성공, 전부 실패해야 `.catch`로 감
+> 성공한 값들 중 가장 먼저 도착한 것을 반환한다
+
+```js
+const p1 = Promise.reject('실패1');
+const p2 = Promise.resolve('성공!');
+const p3 = Promise.reject('실패2');
+
+Promise.any([p1, p2, p3])
+  .then((res) => {
+    console.log('성공:', res); // 성공: 성공!
+  })
+  .catch((err) => {
+    console.error('전부 실패:', err);
+  });
+```
