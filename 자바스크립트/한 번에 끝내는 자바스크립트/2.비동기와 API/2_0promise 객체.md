@@ -1,4 +1,31 @@
+## 콜백 지옥
+```js
+function increaseAndPrint(n, callback) {
+    setTimeout(() => {
+        const increased = n + 1;
+        console.log(increased);
+        if (callback) {
+            callback(increased);
+        }
+    }, 1000);
+}
 
+increaseAndPrint(0, n => {
+    increaseAndPrint(n, n => {
+        increaseAndPrint(n, n => {
+            increaseAndPrint(n, n => {
+                console.log('done');
+            })
+        })
+    })
+})
+
+1
+2
+3
+4
+```
+> callback
 ## 생성
 > `new` 키워드와 생성자를 사용해 생성
 > `executor`라는 실행 함수를 전달하고, `resolve`와 `reject`라는 콜백 함수를 전달
