@@ -131,7 +131,58 @@ id를 바꾸면 다른 사용자에 대해 비동기 작업을 수행할 수 있
 
 - 여러 개의 promise 함수를 연결?
 ```js
+function step1(v) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log('1step done');
+            resolve(v + 1);
+        }, 500);
+    });
+}
+function step2(v) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log('2step done');
+            resolve(v * 2);
+        }, 500);
+    });
+}
+function step3(v) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log('3step done');
+            resolve(v - 3);
+        }, 500);
+    });
+}
+
+step1(5)
+    .then((rst) => {
+        return step2(rst)
+    })
+    .then((rst) => {
+        return step3(rst)
+    })
+    .then((rst) => {
+        console.log('alldone',rst)
+    })
 ```
+
+체이닝이 가능하다 라는 의미
+
+참고로 위에 `then`과 아래는 같음
+```js
+step1(5)
+  .then(step2)
+  .then(step3)
+  .then((result) => {
+    console.log('최종 결과:', result); // ((5+1)*2)-3 = 9
+  });
+```
+
+`.then(step2)`는 위에 풀어쓴거랑 동일하게 동작하는데
+즉, 함수 이름만 넘겨도 자동으로 호출하는 함수로 바뀐다.
+단, 넘기는 함수는 반드시 `promise`를 반환해야 체이닝이 유지됨
 ## 콜백 지옥
 > promise를 이용해 자바스크립트 비동기 처리 방식의 문제점 중 하나인 콜백 지옥을 해결 할 수 있다.
 
