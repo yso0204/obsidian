@@ -232,4 +232,31 @@ workA(10)
 > 결국 체이닝과 관련되어 있는데
 > `then()` `catch()` `finally()`는 원래 promise를 수정하지 않고 항상 새로운 promise 객체를 반환한다.
 
-`.then()`은 항상 함수를 넣어야하며
+`(...)`은 항상 함수를 넣어야 하며 만약 다른 promise 객체 같은걸 넣으면 무시된다.
+
+이는 체이닝이 가능한 이유로 연결되는데,
+```js
+doSomething()
+  .then((res) => step1(res))
+  .then((res) => step2(res))
+  .then((res) => step3(res))
+  .catch((err) => handleError(err));
+```
+각 `then()`이 새로운 promise를 반환하기에 이어지는 것
+
+```js
+const p = Promise.reject('에러!');
+
+const p2 = p.catch((err) => {
+  console.log('에러 처리:', err);
+  return '정상복구';
+});
+
+p2.then((res) => {
+  console.log('결과:', res); // 정상복구
+});
+
+에러 처리: 에러!
+결과: 정상복구
+```
+`catch()`도 promise를 반환하기에 `.then()`으로 이어서 가능
