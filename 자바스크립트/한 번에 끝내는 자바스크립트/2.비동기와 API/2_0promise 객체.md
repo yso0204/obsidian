@@ -25,8 +25,34 @@ increaseAndPrint(0, n => {
 3
 4
 ```
-> callback
-## 생성
+> callback이 중첩되면서 depth가 깊어져 가독성이 망가진다
+
+## promise로 변경하면?
+
+```js
+function increaseAndPrint(n) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(n + 1);
+            resolve(n + 1);
+        }, 1000);
+    })
+}
+
+increaseAndPrint(0)
+    .then((rst) => {
+        return increaseAndPrint(rst)
+    })
+    .then((rst) => {
+        return increaseAndPrint(rst)
+    })
+    .then((rst) => {
+        return increaseAndPrint(rst)
+    });
+
+```
+
+## Promise 생성
 > `new` 키워드와 생성자를 사용해 생성
 > `executor`라는 실행 함수를 전달하고, `resolve`와 `reject`라는 콜백 함수를 전달
 
