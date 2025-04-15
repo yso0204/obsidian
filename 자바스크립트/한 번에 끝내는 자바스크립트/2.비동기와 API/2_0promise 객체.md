@@ -86,8 +86,31 @@ promise.then((result) => {
 
 ## Promise 함수 등록
 ```js
+//promise 객체를 반환하는 함수
+function myPromise(temp) {
+    return new Promise((resolve, reject) => {
+        if (/*promise의 성공 조건*/temp%2==0) {
+            resolve();
+        }
+        else {
+            reject();
+        }
+    })
+}
+
+//promise 객체를 반환하는 함수 call
+myPromise(9)
+    .then((result) => {
+        //성공시 resolve('')의 '' 값 result로 리턴됨
+    })
+    .catch((error) => {
+        //성공시 error('')의 '' 값 error로 리턴됨
+    })
 
 ```
+
+1. 재사용성 : promise 객체를 필요할 때 마다 호출하여 재사용 가능
+2. 가독성 : promise 객체를 함수로 만들어 두면 비동기 작업의 정의와 사용이 분
 ## 콜백 지옥
 > promise를 이용해 자바스크립트 비동기 처리 방식의 문제점 중 하나인 콜백 지옥을 해결 할 수 있다.
 
