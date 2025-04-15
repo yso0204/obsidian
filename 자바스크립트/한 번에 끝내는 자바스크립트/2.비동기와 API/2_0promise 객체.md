@@ -232,3 +232,4 @@ workA(10)
 > 결국 체이닝과 관련되어 있는데
 > `then()` `catch()` `finally()`는 원래 promise를 수정하지 않고 항상 새로운 promise 객체를 반환한다.
 
+`.then()`은 항상 함수를 넣어야하며
