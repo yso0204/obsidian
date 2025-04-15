@@ -265,5 +265,9 @@ p2.then((res) => {
 # Promise 정적 메서드
 > promise 클래스에는 5가지의 정적 메서드가 있다
 
+## Promise.resolve()
+> 
+
+## Promise.
 ## Promise.all
 > 여러 개의  promise들을 배열로 받아 동시에 실행시키고 모든 promise가 준비될 때 까지 기다린다.
