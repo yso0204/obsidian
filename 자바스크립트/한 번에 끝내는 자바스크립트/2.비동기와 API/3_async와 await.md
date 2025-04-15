@@ -48,5 +48,21 @@ fetch('https://api.example.com/data')
   });
 ```
 ### async/awit
+```js
+async function getData() {
+  try {
+    const res = await fetch('https://api.example.com/data');
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.error('에러 발생:', err);
+  }
+}
+
+getData();
 ```
-```
+
+- 동기 코드처럼 위에서 아래로 흐름이 보여 읽기 쉬움
+- 예외 처리는 `try...catch`로 감싸는게 일반적이다
+- `await` 앞에 있는 건 Promise 여야 의미가 있다.
+
