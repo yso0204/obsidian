@@ -29,3 +29,12 @@ console.log(window.x); // 10
 ![](https://i.imgur.com/Gwr8YN8.png)
 >오른쪽 DOM 트리는 HTML tag 요소들로 Node 라고 부르며 Node 들은 하나의 객체로 이루어져 있다.
 
+`document`객체는 페이지의 기본 '진입점' 역할을 하는데, 이를 통해 페이지 내 무엇이든 변경하고 원하는 것을 만들 수 있다.
+```js
+// 배경을 붉은색으로 변경하기
+document.body.style.background = "red";
+
+// 1초 후 원상태로 복구하기
+setTimeout(() => document.body.style.background = "", 1000);
+```
+
