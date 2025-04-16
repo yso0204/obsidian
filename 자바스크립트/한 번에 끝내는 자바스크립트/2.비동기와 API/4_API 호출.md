@@ -51,7 +51,7 @@ getData();
 ```js
 const getData = async () => {
   try {
-    let response = await fetch('https://jsonplaceholder.typicode.com/users');
+    let response = await fetch('https://jsonplaceholder.3433.com/users');
     let data = await response.json();
     console.log(response);
     console.log(data);
@@ -63,3 +63,8 @@ const getData = async () => {
 
 getData();
 ```
+
+url을 이상하게 해서 나온 결과를 보면
+![](https://i.imgur.com/HA9KsTd.png)
+
+이렇게 type error 를 볼 수 있다.
