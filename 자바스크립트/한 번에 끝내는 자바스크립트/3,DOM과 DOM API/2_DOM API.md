@@ -117,3 +117,20 @@ console.log($name.className);
 ```
 
 ## `id`
+```js
+let $name = document.getElementById('name');
+$name.className = ('dog-name');
+console.log($name);
+console.log($name.className);
+$name.id = 'name2';
+console.log($name);
+console.log($name.id);
+```
+![](https://i.imgur.com/smdgLP5.png)
+
+
+## `classList`
+> `className`과 비슷하게 요소의 class 에 접근 가능하다
+
+classList는 className 처럼 특정 요소의 class 속성에 접근 가능하지만 아래 사진과 같이 여러 메서드를 제공한다.
+![](https://i.imgur.com/HZ7vFHH.png)
