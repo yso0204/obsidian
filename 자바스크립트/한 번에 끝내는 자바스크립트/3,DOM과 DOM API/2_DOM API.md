@@ -78,3 +78,12 @@ console.log($infoItem);
 ```
 
 ![](https://i.imgur.com/e6PfUSo.png)
+
+class 이름이 info-item 인 요소들이 nodeList에 담긴 것을 볼 수 있다.
+
+## `document.getElementsByClassName()`
+> 
+
+## `document.getElementsByTagName()`
+> html의 `div`나 `img` 등과 같은 tag 이름을 통해 요소들을 찾는다
+
