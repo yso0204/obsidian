@@ -30,3 +30,16 @@
 
 또한 `option` 태그에 selected 속성을 작성하여 기본값을 설정할 수 있다.
 
+`index.js`
+```js
+const $fruitSelect = document.getElementById('fruitSelect');
+
+$fruitSelect.addEventListener('change', (event) => {
+    let selectedValue = event.target.value;
+    console.log(selectedValue);
+});
+```
+이렇게 event 만들어서 실행도 가능하다.
+
+## input
+> 특정 값을 입력하기 위해 사용되는 태그
