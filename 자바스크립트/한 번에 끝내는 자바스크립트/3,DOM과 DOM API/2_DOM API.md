@@ -48,5 +48,33 @@ id를 찾는다면 `#` 을 사용한다.
 ![](https://i.imgur.com/nBLvHOT.png)
 
 
+위 2개 API는 단 하나의 요소만을 반환하지만, 조건을 만족하는 요소가 여러 개일 경우 해당 요소를 전부 반환하는 DOM AP도 있다.
+`querySelectorAll`, `getElementsByClassName`, `getElementsByTagName` 가 대표적이다.
+
 ## `document.querySelectorAll()`
-> 조건을 만족하는 요소가 여러 개면 해당 요소를 전부 반환하는 
+> 전달받은 class 이름을 가지고 있는 여러 요소들을 전부 반환
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM Tree</title>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <div class="animal-info">
+            <div class="info-item" id="name">강아지</div>
+            <div class="info-item" id="color">갈색</div>
+            <div class="info-item" id="age">2살</div>
+        </div>
+        <script src="src/index.js"></script>
+    </body>
+</html>
+```
+
+```js
+let $infoItem = document.querySelectorAll('div.info-item');
+console.log($infoItem);
+```
+
+![](https://i.imgur.com/e6PfUSo.png)
