@@ -85,3 +85,12 @@ $loginBtn.addEventListener('click', () => {
     console.log($password.value);
 });
 ```
+혹은
+```js
+$userName.value = '홍길동';
+$password.addEventListener('input', (event) => {
+    console.log(event.target.value);
+});
+```
+이렇게 해서도 `input` 태그의 값을 가져와서 조작할 수 있다.
+
