@@ -95,3 +95,8 @@ console.log($animalInfo.innerHTML);
 새로운 요소들을 쉽게 설정하고 변경할 수 있지만, 보안과 성능에 문제가 있기 때문에 가능하면 `createElement`나 `textContent`와 같은 API를 사용하는 것이 좋다.
 
 보안과 성능을 위해 innerHTML보다는 createElement나 textContent 같은 안전한 API를 사용하고, 기존 내용을 제거하려면 removeChild나 innerHTML = ''로 직접 삭제한 후 추가하면 된다.
+
+![](https://i.imgur.com/0Whb69I.png)
+![](https://i.imgur.com/tbSwZ7u.png)
+
+이렇게 기존꺼 다 날리고 script를 실행해 버릴 수 있어 보안상으로 innerHTML은 좋지 않다.
