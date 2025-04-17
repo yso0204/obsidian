@@ -78,3 +78,20 @@ console.log($animalInfo);
 > 특정 요소의 내부에 HTML 요소를 추가할 수 있다
 > `innerHTML`은 특정 요소의 HTML을 문자열 형태로 읽거나 설정할 수 있다.
 
+```js
+let $animalInfo = document.querySelector('div.animal-info');
+console.log($animalInfo.innerHTML);
+```
+![](https://i.imgur.com/Kgu9Qju.png)
+
+이렇게 모든 HTML 요소들이 출력되는데 아래처럼 기존 HTML요소들을 날리고 새롭게 지정할 수 있다.
+```js
+let $animalInfo = document.querySelector('div.animal-info');
+$animalInfo.innerHTML = '<div id="name">고양이</div>';
+console.log($animalInfo.innerHTML);
+```
+![](https://i.imgur.com/RoeuPj1.png)
+
+새로운 요소들을 쉽게 설정하고 변경할 수 있지만, 보안과 성능에 문제가 있기 때문에 가능하면 `createElement`나 `textContent`와 같은 API를 사용하는 것이 좋다.
+
+보안과 성능을 위해 innerHTML보다는 createElement나 textContent 같은 안전한 API를 사용하고, 기존 내용을 제거하려면 removeChild나 innerHTML = ''로 직접 삭제한 후 추가하면 된다.
