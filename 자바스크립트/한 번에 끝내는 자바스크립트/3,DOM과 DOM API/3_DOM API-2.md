@@ -96,7 +96,40 @@ console.log($animalInfo.innerHTML);
 
 보안과 성능을 위해 innerHTML보다는 createElement나 textContent 같은 안전한 API를 사용하고, 기존 내용을 제거하려면 removeChild나 innerHTML = ''로 직접 삭제한 후 추가하면 된다.
 
-![](https://i.imgur.com/0Whb69I.png)
-![](https://i.imgur.com/tbSwZ7u.png)
+## xss 보안 문제 예시
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>XSS 실험</title>
+</head>
+<body>
+  <input type="text" id="input-box" placeholder="이름을 입력하세요">
+  <button onclick="greet()">인사하기</button>
 
-이렇게 기존꺼 다 날리고 script를 실행해 버릴 수 있어 보안상으로 innerHTML은 좋지 않다.
+  <div id="result"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+```js
+function greet() {
+    const userInput = document.getElementById("input-box").value;
+  
+    // 보안 취약 코드
+    document.getElementById("result").innerHTML = "안녕하세요, " + userInput + "님!";
+  }
+```
+
+여기서 만약에 console에
+```
+document.getElementById("input-box").value = `<img src="x" onerror="alert('해킹!')">`;
+```
+
+라고 입력 후 버튼을 누르면
+
+input box에 
+
