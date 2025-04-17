@@ -24,3 +24,29 @@ HTML에서 요소를 작성할 때는 `class`와 `id`를 사용해 요소의 이
 
 ## `document.getElementById()`
 > 특정 요소를 id 값으로 가져온다는 의미로 실제로 특정 요소의 객체 값을 반환한다.
+
+```js
+let $color = document.getElementById("color");
+console.log($color);
+```
+![](https://i.imgur.com/WYCvgYn.png)
+
+id 값이 color 인 div 요소가 출력되었다.
+
+## `document.querySelector()`
+> 특정 요소의 id가 아닌 css 선택자로 요소 노드를 반환하는 API
+
+```js
+let $animalInfo = document.querySelector('div.animal-info');
+let $age = document.querySelector('div#age');
+
+console.log($animalInfo);
+console.log($age);
+```
+tag를 쓰고, class를 찾으면 `.`을
+id를 찾는다면 `#` 을 사용한다.
+![](https://i.imgur.com/nBLvHOT.png)
+
+
+## `document.querySelectorAll()`
+> 조건을 만족하는 요소가 여러 개면 해당 요소를 전부 반환하는 
