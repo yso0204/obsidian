@@ -52,4 +52,29 @@ $type.appendChild($typeText);
 ```
 ![](https://i.imgur.com/gZob9RF.png)
 
-부모 노드
+부모 노드를 찾고, `.appendChild`로 차례로 자식 노드를 추가해준다.
+
+## `addEventListener()`
+> DOM의 특정 요소에 여러가지 이벤트를 추가 할 수 있다.
+
+```js
+let $button = document.createElement('button');
+$button.id = 'new-button';
+$button.classList.add('new-button');
+$button.textContent = '버튼';
+$button.addEventListener('click', () => {
+    alert('click')
+})
+let $animalInfo = document.querySelector('div.animal-info');
+$animalInfo.appendChild($button);
+console.log($animalInfo);
+
+```
+![](https://i.imgur.com/cJDeic1.png)
+
+이렇게 `click`,`scroll` 등등을 넣어서 이벤트를 넣어서 작성할 수 있다.
+
+## `innerHTML`
+> 특정 요소의 내부에 HTML 요소를 추가할 수 있다
+> `innerHTML`은 특정 요소의 HTML을 문자열 형태로 읽거나 설정할 수 있다.
+
