@@ -134,3 +134,29 @@ console.log($name.id);
 
 classList는 className 처럼 특정 요소의 class 속성에 접근 가능하지만 아래 사진과 같이 여러 메서드를 제공한다.
 ![](https://i.imgur.com/HZ7vFHH.png)
+
+### className vs classList
+> className은 요소 전체 클래스 이름을 문자열로
+> classList는 요소 전체 클래스 목록을 배열처럼 다룬다
+
+```js
+let $color = document.getElementById('color');
+
+console.log($color.className);
+console.log($color.classList);
+```
+
+![](https://i.imgur.com/ysnBJ2d.png)
+
+### method
+
+#### `add()`
+```js
+let $color = document.getElementById('color');
+
+$color.classList.add('dog-color')
+console.log($color.classList);
+```
+![](https://i.imgur.com/xKjGyOS.png)
+
+#### `remove()`
