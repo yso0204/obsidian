@@ -82,8 +82,38 @@ console.log($infoItem);
 class 이름이 info-item 인 요소들이 nodeList에 담긴 것을 볼 수 있다.
 
 ## `document.getElementsByClassName()`
-> 
+> class 이름만으로 여러 요소들을 찾는 API
 
+```js
+let $infoItem = document.getElementsByClassName('info-item')
+console.log($infoItem);
+```
+![](https://i.imgur.com/iHFvs44.png)
+
+HTMLCollection 안에 info-item class 들이 담겨있는 것을 볼 수 있다.
 ## `document.getElementsByTagName()`
 > html의 `div`나 `img` 등과 같은 tag 이름을 통해 요소들을 찾는다
 
+```js
+let $div = document.getElementsByTagName("div");
+console.log($div);
+```
+![](https://i.imgur.com/BPLNdVX.png)
+
+`div` tag들이 HTMLCollection 에 담긴 것을 볼 수 있다.
+
+요소들의 속성값과 텍스트 등을 변경할 수 있는 API들을 알아 보자
+## `className`
+> class 이름을 변경하는 API
+
+
+![](https://i.imgur.com/kYXpO0i.png)
+
+```js
+let $name = document.getElementById('name');
+$name.className = ('dog-name');
+console.log($name);
+console.log($name.className);
+```
+
+## `id`
