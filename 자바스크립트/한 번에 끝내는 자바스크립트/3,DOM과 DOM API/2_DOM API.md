@@ -160,3 +160,47 @@ console.log($color.classList);
 ![](https://i.imgur.com/xKjGyOS.png)
 
 #### `remove()`
+```js
+let $color = document.getElementById('color');
+
+$color.classList.add('dog-color')
+console.log($color.classList);
+$color.classList.remove('info-item')
+console.log($color.classList);
+```
+![](https://i.imgur.com/myFK6A5.png)
+
+#### `toggle()`
+> 있으면 제거, 없으면 추가
+
+```js
+let $color = document.getElementById('color');
+
+$color.classList.toggle('hidden')
+console.log($color.classList);
+$color.classList.toggle('hidden')
+console.log($color.classList);
+```
+![](https://i.imgur.com/tKN2OvF.png)
+
+## `textContent`
+> 요소 노드의 텍스트 노드 값을 조작
+
+```js
+let $color = document.getElementById('color');
+
+$color.textContent = 'blue'
+```
+![](https://i.imgur.com/9U6TPye.png)
+
+## `style`
+> 요소의 스타일을 추가하고 수정
+
+```js
+let $color = document.getElementById('color');
+$color.style.color = 'blue';
+$color.style.fontSize = '30px';
+
+console.log($color);
+```
+![](https://i.imgur.com/UxTyL3f.png)
