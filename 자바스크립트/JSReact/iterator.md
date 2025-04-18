@@ -25,3 +25,7 @@ console.log(typeof arr[Symbol.iterator]);
 function
 ```
 
+`const iterator = arr[Symbol.iterator]();`
+
+이게 무슨 말이냐면, arr를 호출해서 반복을 시작하려면 arr의 `Symbol.iterator`함수 호출하면 iterator 객체가 나오고, 이 객체는 `.next()` 를 가지고 있다.
+
