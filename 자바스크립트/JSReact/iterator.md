@@ -32,3 +32,21 @@ function
 ## Symbol 을 쓰는 이유?
 일반적인 `iterator`를 쓰게되면 충돌 위험이 있다.
 `Symbol.iterator` 는 전역적으로 유일한 심볼이라 다른 사람이 만든 코드랑 충돌할 일이 없고, js 엔진이 특별히 약속한 프로토콜로 인식할 수 있다.
+
+예시
+```js
+const arr = [10, 20, 30];
+
+const iterator= (arr[Symbol.iterator]());
+
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+
+{ value: 10, done: false }
+{ value: 20, done: false }
+{ value: 30, done: false }
+{ value: undefined, done: true }
+```
+- `arr[Symbol.iterator`
