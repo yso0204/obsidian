@@ -50,4 +50,5 @@ console.log(iterator.next());
 { value: undefined, done: true }
 ```
 - `arr[Symbol.iterator]()` iterator 객체 반환
-- 
+- 이 객체는 `next()` 함수를 가짐
+- ``
