@@ -8,3 +8,6 @@
 1. `next()` 메서드를 가지고 있다.
 2. `next()`
 를 호출하면 `{value: 값, doen: boolean}` 형태의 객체를 반환
+
+`iterable` 객체는 반드시 `Symbol.iterator`라는 특별한 키를 가져야 한다.
+
