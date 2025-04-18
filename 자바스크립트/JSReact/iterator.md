@@ -49,4 +49,5 @@ console.log(iterator.next());
 { value: 30, done: false }
 { value: undefined, done: true }
 ```
-- `arr[Symbol.iterator`
+- `arr[Symbol.iterator]()` iterator 객체 반환
+- 
