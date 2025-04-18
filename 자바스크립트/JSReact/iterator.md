@@ -11,3 +11,17 @@
 
 `iterable` 객체는 반드시 `Symbol.iterator`라는 특별한 키를 가져야 한다.
 
+## `Symbol.iterator`가 무엇인가?
+> js 에서 반복할 수 있는 객체를`iterable`이라고 하는데 이 객체가 가지는 특별한 키
+
+이 키에 대응하는 값은?
+반복을 시작할 때 호출되는 함수
+
+```js
+const arr = [10, 20, 30];
+
+console.log(typeof arr[Symbol.iterator]);
+
+function
+```
+
