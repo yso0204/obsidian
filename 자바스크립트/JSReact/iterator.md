@@ -29,3 +29,6 @@ function
 
 이게 무슨 말이냐면, arr를 호출해서 반복을 시작하려면 arr의 `Symbol.iterator`함수 호출하면 iterator 객체가 나오고, 이 객체는 `.next()` 를 가지고 있다.
 
+## Symbol 을 쓰는 이유?
+일반적인 `iterator`를 쓰게되면 충돌 위험이 있다.
+`Symbol.iterator` 는 전역적으로 유일한 심볼이라 다른 사람이 만든 코드랑 충돌할 일이 없고, js 엔진이 특별히 약속한 프로토콜로 인식할 수 있다.
