@@ -51,4 +51,20 @@ console.log(iterator.next());
 ```
 - `arr[Symbol.iterator]()` iterator 객체 반환
 - 이 객체는 `next()` 함수를 가짐
-- ``
+- `next()`를 호출할 때 마다 배열의 다음 값을 반환
+
+```yaml
+          [배열 arr]
+              |
+              | .[Symbol.iterator]()
+              ↓
+      [Iterator 객체 반환]  --> { next: function() { ... } }
+
+              ↓
+        next() 호출할 때마다
+      { value: 요소값, done: false } 반환
+              ↓
+        끝나면 { done: true }
+```
+
+# 자바스크립트에서 for...of 동작
