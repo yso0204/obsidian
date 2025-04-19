@@ -98,3 +98,21 @@ while (true) {
 ```
 
 결국 `for...of`는 위에 호출한 것과 마찬가지로 `iterator.next()`를 계속 호출해서 `next()`를 불러서 동작하고 있다.
+
+`for...of`를 직접 구현해보면
+```js
+function testForOf(iterable, callback) {
+    const iterator = iterable[Symbol.iterator]();
+    while (true) {
+        const { value, done } = iterator.next();
+        if (done) break;
+        callback(value);
+    }
+}
+testForOf(arr, (item) => {
+    console.log(item);
+})
+```
+
+
+
