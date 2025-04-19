@@ -125,3 +125,26 @@ testForOf(arr, (item) => {
 
 yield 키워드를 사용해서 값을 순차적으로 내보낼 수 있는 자바스크립트가 제공하는 함수
 
+`.next()`로 중단된 지점부터 이어서 실행 가능하다
+지연 실행, 메모리 효율성을 높일 수 있다.
+
+## `yield`
+> 값을 밖으로 내보내고 함수의 실행을 멈추는 키워드
+
+## 기본구조
+```js
+function* infiniteNumbers() {
+    let i = 1;
+    while (true) {
+      yield i++;
+    }
+  }
+  
+const gen = infiniteNumbers();
+  
+console.log(gen.next()); // { value: 1, done: false }
+console.log(gen.next()); // { value: 2, done: false }
+
+```
+function* 함수명 으로 generator 임을 선언하고 yield를 반환한다.
+`infiniteNumbers()`를 호출하면 generator 객체가 반환되며 
