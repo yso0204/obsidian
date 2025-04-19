@@ -114,5 +114,13 @@ testForOf(arr, (item) => {
 })
 ```
 
+## `for...in`과의 차이
+- `for...in`은 객체의 key를 순회하기에 iterator를 사용하지 않는다
+## `...` Spread 
+> spread 도 `[Symbol.iterator]()`를 호출해서 하나씩 값을 뽑아내고 있는 것
 
 
+# Generator
+> Generator는 iterator를 쉽게 사용할 수 있도록 해주는 함수
+
+yield 키워드를 사용해서 값을 순
