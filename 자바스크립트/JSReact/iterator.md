@@ -123,4 +123,5 @@ testForOf(arr, (item) => {
 # Generator
 > Generator는 iterator를 쉽게 사용할 수 있도록 해주는 함수
 
-yield 키워드를 사용해서 값을 순
+yield 키워드를 사용해서 값을 순차적으로 내보낼 수 있는 자바스크립트가 제공하는 함수
+
