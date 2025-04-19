@@ -88,4 +88,13 @@ while (true) {
     console.log(value);
     console.log(result);
 }
+
+1
+{ value: 1, done: false }
+2
+{ value: 2, done: false }
+3
+{ value: 3, done: false }
 ```
+
+결국 `for...of`는 위에 호출한 것과 마찬가지로 `iterator.next()`를 계속 호출해서 `next()`를 불러서 동작하고 있다.
