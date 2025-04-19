@@ -135,24 +135,34 @@ yield 키워드를 사용해서 값을 순차적으로 내보낼 수 있는 자�
 function* myGen() {
     console.log("시작");
     yield 1;
-    console.log("➡ yield 1 이후");
+    console.log("yield 1 이후");
     yield 2;
+    console.log("yield 2 이후");
+    yield 3;
     console.log("끝!");
 }
 
-const gen = myGen();
+const gen = myGen(); // 아직 아무 일도 일어 나지 않음, myGen()함수는 동작한 것이아님
 
-gen.next();
-gen.next();
-gen.next();
-gen.next();
+let i = 0;
+while (true) {
+    let result = gen.next();
+    if (result.done) break;
+    else {
+        console.log(`${i}번쨰 , ${result.value}`)
+    }
+    i++;
+}
 
 시작
-➡ yield 1 이후
+0번쨰 , 1
+yield 1 이후
+1번쨰 , 2
+yield 2 이후
+2번쨰 , 3
 끝!
 ```
 
-- 첫 `.next()`호출 : 시작을 출력하고 1 반환, 
 
 
 ## 기본구조
