@@ -68,3 +68,24 @@ console.log(iterator.next());
 ```
 
 # 자바스크립트에서 for...of 동작
+```js
+const arr = [1, 2, 3];
+for (const num of arr) {
+    console.log(num);
+}
+```
+
+위에 동작을 내부적으로 바라보면
+```js
+const arr = [1, 2, 3];
+
+const iterator = arr[Symbol.iterator]();
+
+while (true) {
+    const result = iterator.next();
+    if (result.done) break;
+    const value = result.value;
+    console.log(value);
+    console.log(result);
+}
+```
