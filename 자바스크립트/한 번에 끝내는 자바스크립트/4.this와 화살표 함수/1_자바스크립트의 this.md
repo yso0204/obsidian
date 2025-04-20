@@ -32,3 +32,23 @@ public:
 console.log(this);
 ```
 ![](https://i.imgur.com/sBNovrY.png)
+- node에서 실행하면 `global`이 출력됨
+
+## 일반 함수 호출
+```js
+function show() {
+    console.log(this);
+}
+show();
+```
+![](https://i.imgur.com/sBNovrY.png)
+- `this`는 자신을 포함하고 있는 함수가 어떻게 호출되었는가? 에 따라서 값이 달라는데, 여기서는 `this`가 포함된 `func` 함수를 호출한 객체가 `window`이기에 `window`가 바인딩 된다.
+## 메서드 호출
+```js
+const person = {
+    name: 'tom',
+    sayHi() {
+        console.log(this.name);
+    }
+}
+```
