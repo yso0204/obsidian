@@ -58,4 +58,20 @@ printMenu.call(cafe, '아메리카노', '톨');
 - this와 인자를 미리 고정한 새 함수를 리턴만 하고 실행은 따로 해야한다.
 
 ```js
+const sbMenu = printMenu.bind(cafe, '콜드브루', '벤티');
+sbMenu();
 ```
+
+또 다른 예시로 이전에 진행했던 타이머를 보자
+
+```js
+function Counter() {
+    this.count = 0;
+    setInterval(function () {
+        this.count++;
+        console.log(this.count);
+    }.bind(this),2000)
+}
+const counter = new Counter();
+```
+이렇게 bind로 `this`를 지정하여 count가 
