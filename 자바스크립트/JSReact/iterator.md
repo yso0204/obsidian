@@ -163,7 +163,8 @@ yield 2 이후
 끝!
 ```
 
-- 처
+- 첫 next()을 호출하면 시작을 출력하고 1을 반환 후 멈춘다
+- 두 번쨰 next()를 호출하면 yiedl 1을 출력하고 2를 반환
 
 
 ## 기본구조
@@ -183,3 +184,14 @@ console.log(gen.next()); // { value: 2, done: false }
 ```
 function* 함수명 으로 generator 임을 선언하고 yield를 반환한다.
 `infiniteNumbers()`를 호출하면 generator 객체가 반환되며 이 객체는 `next()`로 순회 가능하다
+
+## Generator의 상태 유지
+```js
+function* infiniteNumbers() {
+  let i = 1;
+  while (true) {
+    yield i++; // i는 계속 증가
+  }
+}
+```
+- Generator는 매번 새로 시작하지 않고 마지막 i값을 기억하고 이어서 실행함
