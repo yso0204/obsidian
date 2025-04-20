@@ -97,3 +97,5 @@ myCafe();
 ![](https://i.imgur.com/LIUTz3O.png)
 `myCafe`에 `cafe2.print`함수만 복사된 형태이다.
 그렇기에 myCafe()는 일반 함수로 호출되어 `window`가 출력된다.
+
+## 생성자 함수 호출
