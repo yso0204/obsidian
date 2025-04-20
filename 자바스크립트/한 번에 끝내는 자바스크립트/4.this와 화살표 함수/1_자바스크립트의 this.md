@@ -81,3 +81,19 @@ cafe.newCafe.print();
 newCafe라는 객체가 출력됨
 즉 `print()`를 호출하는 주체(호출 컨텍스트)는 `cafe.newCafe`
 
+### 아래처럼 바뀌면?
+```js
+const cafe2 = {
+    brand: '할리스',
+    menu: '아메리카노',
+    print: function () {
+        console.log(this);
+    },
+};
+
+const myCafe = cafe2.print;
+myCafe();
+```
+![](https://i.imgur.com/LIUTz3O.png)
+`myCafe`에 `cafe2.print`함수만 복사된 형태이다.
+그렇기에 myCafe()는 일반 함수로 호출되어 `window`가 출력된다.
