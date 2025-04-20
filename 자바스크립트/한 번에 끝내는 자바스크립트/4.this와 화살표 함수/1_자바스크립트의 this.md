@@ -114,4 +114,6 @@ console.log(myCafe2);
 `myCafe`는 `new`를 사용하여 새로운 객체로 만들어 주었기에 myCafe 의`consol.log(this)`는 `this.menu`가 할당 전이기에 빈 객체를 보여주고 있고
 이후 `myCafe`에 latte 가 할당되어 myCafe 객체의 menu에 해당 값이 있다.
 
-그러나 `myCafe2`는 `cafe`함수 자체를 가리키고 있고, `cafe`함수는 return 값이 없
+그러나 `myCafe2`는 `cafe`함수 자체를 가리키고 있고, `cafe`함수는 return 값이 없다.
+
+그렇기에 `cafe` 함수에서 this는 어떤 객체를 가리키고 있는지를 출력해야하는데 일반 함수로써 호출되었기에 `window`를 출력하고, `myCafe2`를 출력해보면 `cafe` 함수는 return 이 없기에 `undefined`가 return 되어 `undefined`가 출력도
