@@ -123,7 +123,8 @@ return thisObj;
 ```
 
 `console.log(this)` 는 `thisObj`를 출력
-- 
+- 함수 안에서 `this`는 `thisObj`이므로 `this.menu = menu`는 `thisObj.menu = 'latte'`로 저장
+그렇기에 `cafe { menu: 'latte' }` 로 출력된다.
 
 그러나 `myCafe2`는 `cafe`함수 자체를 가리키고 있고, `cafe`함수는 return 값이 없다.
 
