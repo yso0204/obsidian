@@ -20,6 +20,8 @@ printMenu(cafe, '아메리카노', '톨');
 
 현재 `this`는 `window`를 가리키고 있어 해당 값들이 정의되지 않앗다.
 
+---
+
 # `call()`
 
 > 지금 이 객체(this)로 함수 실행해 라고 지정
@@ -50,6 +52,8 @@ printMenu.call(cafe, '아메리카노', '톨');
 
 
 - `call()` 과 `apply()` 는 즉시 실행하는 특성이 있다.
+- ---
+
 # bind
 > 이 객체(this) 와 묶은 함수를 새로 만들지만, call이나 apply 처럼 즉시 실행하는 것이 아님
 
@@ -63,7 +67,7 @@ sbMenu();
 ```
 
 또 다른 예시로 이전에 진행했던 타이머를 보자
-
+## 타이머 예시
 ```js
 function Counter() {
     this.count = 0;
@@ -77,6 +81,8 @@ const counter = new Counter();
 이렇게 bind로 `this`를 지정하여 count가 올라가는 것을 볼 수 있다.
 
 `new Counter()`가 호출되어 아래 처럼 동작하는데
+### `new` js 내부 동작
+
 ```js
 let this = {};              // 새 객체 생성
 this.__proto__ = Counter.prototype;
@@ -89,9 +95,20 @@ return this;
 1. 빈 객체 생성
 `let this = {}` 로 this 라는 객체를 하나 만든다.
 이 객체가 나중에 `counter` 객체가 된다.
+
 2. 이 객체의 프로토 타입 연결
 `this.__proto__ = Counter.prototype`
+새 객체에 함수의 prototype을 연결해준다.
+이로써 `counter`는 `Counter.prototype` 의 메서드에 접근할 수 있게 된다.
 
+3. 생성자 함수 실행
+`Counter.call(this)`
+`Counter()` 함수 안의 `this`는 방금 만든 객체로 바인딩 된다.
+그래서 `this.count = 0`같은 코드는 `this={count:0}` 이렇게 작동한다.
+
+4. this 리턴
+`return this`
+생성자 함수가 명시적으로 객체를 반환하지 않으면, `new`는 자동으로 이 `this` 객체를 반환해준다.
 
 ```js
 setInterval(function () {
@@ -99,4 +116,4 @@ setInterval(function () {
     console.log(this.count);
 }.bind(this), 2000);
 ```
-`setInterval`에서 this는 Counter의 내부 이므로
+`setInterval`에서 this는 Counter의 내부 이므로 
