@@ -116,4 +116,31 @@ console.log(myCafe2);
 
 그러나 `myCafe2`는 `cafe`함수 자체를 가리키고 있고, `cafe`함수는 return 값이 없다.
 
-그렇기에 `cafe` 함수에서 this는 어떤 객체를 가리키고 있는지를 출력해야하는데 일반 함수로써 호출되었기에 `window`를 출력하고, `myCafe2`를 출력해보면 `cafe` 함수는 return 이 없기에 `undefined`가 return 되어 `undefined`가 출력도
+그렇기에 `cafe` 함수에서 this는 어떤 객체를 가리키고 있는지를 출력해야하는데 일반 함수로써 호출되었기에 `window`를 출력하고, `myCafe2`를 출력해보면 `cafe` 함수는 return 이 없기에 `undefined`가 return 되어 `undefined`가 출력된다.
+
+
+## 콜백 함수
+```js
+const cafe = {
+    brand: '이디야',
+    menu: '',
+    setMenu: function (menu) {
+        this.menu = menu;
+    },
+};
+
+function getMenu(menu, callback) {
+    callback(menu);
+}
+
+getMenu('핫초코', cafe.setMenu);
+
+console.log(cafe);
+console.log(window.menu);
+```
+
+![](https://i.imgur.com/IfoCK2o.png)
+
+js에서의 `this`는 자신을 포함하고 있는 함수가 어떻게 호출되었는가? 에 따라서 값이 달라진다.
+
+`cafe` 객체에서의 `this`는 
