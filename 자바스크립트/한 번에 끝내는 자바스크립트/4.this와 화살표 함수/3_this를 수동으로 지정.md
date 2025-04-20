@@ -74,4 +74,29 @@ function Counter() {
 }
 const counter = new Counter();
 ```
-이렇게 bind로 `this`를 지정하여 count가 
+이렇게 bind로 `this`를 지정하여 count가 올라가는 것을 볼 수 있다.
+
+`new Counter()`가 호출되어 아래 처럼 동작하는데
+```js
+let this = {};              // 새 객체 생성
+this.__proto__ = Counter.prototype;
+Counter.call(this);         // 이 this로 함수 실행
+return this;
+```
+여기서 `ths.count = 0`은 `counter` 객체에 프로퍼티가 추가된다.
+
+좀 더 자세히 살펴보면
+1. 빈 객체 생성
+`let this = {}` 로 this 라는 객체를 하나 만든다.
+이 객체가 나중에 `counter` 객체가 된다.
+2. 이 객체의 프로토 타입 연결
+`this.__proto__ = Counter.prototype`
+
+
+```js
+setInterval(function () {
+    this.count++;
+    console.log(this.count);
+}.bind(this), 2000);
+```
+`setInterval`에서 this는 Counter의 내부 이므로
