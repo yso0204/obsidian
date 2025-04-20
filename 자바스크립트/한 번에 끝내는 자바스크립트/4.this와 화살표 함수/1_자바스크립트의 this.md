@@ -115,8 +115,9 @@ const obj = {
 obj.outer();
 ```
 ![](https://i.imgur.com/VRgL4jL.png)
-`outer` 는 `obj.outer()`로 호출되어 `this`는 `obj`
-`inner()`는 일반 함수 호출이기에
+`outer` 는 `obj.outer()`에서 호출되었기에`this`는 `obj`
+`inner()`에서는 `this`가 `inner`를 호출한 객체가 없기 때문에 `window`를 가리킨다.
+
 
 ## 생성자 함수 호출
 ```js
