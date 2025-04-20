@@ -76,3 +76,8 @@ const cafe = {
 
 cafe.newCafe.print();
 ```
+![](https://i.imgur.com/XOcxRxs.png)
+
+newCafe라는 객체가 출력됨
+즉 `print()`를 호출하는 주체(호출 컨텍스트)는 `cafe.newCafe`
+
