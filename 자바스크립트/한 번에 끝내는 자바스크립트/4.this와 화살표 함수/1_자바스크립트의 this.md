@@ -114,6 +114,17 @@ console.log(myCafe2);
 `myCafe`는 `new`를 사용하여 새로운 객체로 만들어 주었기에 myCafe 의`consol.log(this)`는 `this.menu`가 할당 전이기에 빈 객체를 보여주고 있고
 이후 `myCafe`에 latte 가 할당되어 myCafe 객체의 menu에 해당 값이 있다.
 
+자바스크립트 내부적으로는 아래와 같이 동작한다.
+```js
+let thisObj = {};              // 새 객체 생성
+thisObj.__proto__ = cafe.prototype; // 프로토타입 연결
+cafe.call(thisObj, 'latte');   // thisObj를 this로 바인딩하고 함수 호출
+return thisObj;
+```
+
+`console.log(this)` 는 `thisObj`를 출력
+- 
+
 그러나 `myCafe2`는 `cafe`함수 자체를 가리키고 있고, `cafe`함수는 return 값이 없다.
 
 그렇기에 `cafe` 함수에서 this는 어떤 객체를 가리키고 있는지를 출력해야하는데 일반 함수로써 호출되었기에 `window`를 출력하고, `myCafe2`를 출력해보면 `cafe` 함수는 return 이 없기에 `undefined`가 return 되어 `undefined`가 출력된다.
@@ -143,4 +154,13 @@ console.log(window.menu);
 
 js에서의 `this`는 자신을 포함하고 있는 함수가 어떻게 호출되었는가? 에 따라서 값이 달라진다.
 
-`cafe` 객체에서의 `this`는 
+`setMenu`는 `getMenu`에서 메서드가 아닌, 일반 함수로써 호출되었다.
+그렇기에 `this`는 전역객체인 window를 가리키고 있고, 그래서 `winodw.menu`가 핫초코 라는 값을 가지고 있다.
+
+만약에 아래처럼 바꾸면 다를 것이다.
+```js
+function getMenu(menu) {
+    cafe.setMenu(menu);
+}
+```
+![](https://i.imgur.com/DcOpnND.png)
