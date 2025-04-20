@@ -101,21 +101,22 @@ myCafe();
 ### 함수 안의 함수에서의 this
 ```js
 const obj = {
-    name: 'mike',
-    outer() {
+    name: "Alice",
+    outer: function () {
+      console.log("outer this:", this); // obj
         function inner() {
-            console.log(this)
+        console.log("inner this:", this); // 전역 객체(window) 또는 undefined(strict)
         }
         inner();
-        }
-}
+        
+    }
+};
 
 obj.outer();
-
 ```
-![](https://i.imgur.com/2uHE5v7.png)
-
-`ㅐout`
+![](https://i.imgur.com/VRgL4jL.png)
+`outer` 는 `obj.outer()`로 호출되어 `this`는 `obj`
+`inner()`는 일반 함수 호출이기에
 
 ## 생성자 함수 호출
 ```js
