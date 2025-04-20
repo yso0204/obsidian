@@ -9,3 +9,9 @@
 2. 메서드 호출
 3. 생성자 함수 호출
 4. 콜백 함수 호출
+
+## 전역 공간에서의 this
+```js
+console.log(this);
+```
+![](https://i.imgur.com/sBNovrY.png)
