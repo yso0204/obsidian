@@ -118,4 +118,7 @@ setInterval(function () {
 ```
 `setInterval`에서 `this`는 Counter의 내부 이므로 `counter` 인스턴스를 가리킨다.
 그래서 `.bind(this)`는 콜백함수 안에서의 `this`를 `counter` 인스턴스로 고정하라는 뜻
+![](https://i.imgur.com/zwP9Tws.png)
+> gpt 가 만들어준 흐름도
+
 
