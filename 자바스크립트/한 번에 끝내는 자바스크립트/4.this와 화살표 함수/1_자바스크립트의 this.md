@@ -98,6 +98,25 @@ myCafe();
 `myCafe`에 `cafe2.print`함수만 복사된 형태이다.
 그렇기에 myCafe()는 일반 함수로 호출되어 `window`가 출력된다.
 
+### 함수 안의 함수에서의 this
+```js
+const obj = {
+    name: 'mike',
+    outer() {
+        function inner() {
+            console.log(this)
+        }
+        inner();
+        }
+}
+
+obj.outer();
+
+```
+![](https://i.imgur.com/2uHE5v7.png)
+
+`ㅐout`
+
 ## 생성자 함수 호출
 ```js
 function cafe(menu) {
