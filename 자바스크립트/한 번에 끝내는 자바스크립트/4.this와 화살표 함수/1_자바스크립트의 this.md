@@ -51,4 +51,28 @@ const person = {
         console.log(this.name);
     }
 }
+
+person.sayHi();
+```
+![](https://i.imgur.com/LI455yO.png)
+
+메서드 : 객체 프로퍼티의 함수
+
+함수를 메서드로써 호출하면, 그 메서드를 포함하고 있는 그 객체가 호출됨
+
+### 객체 속에 객체의 프로퍼티
+```js
+const cafe = {
+    brand: '이디야',
+    menu: '아메리카노',
+    newCafe: {
+        brand: '이디야',
+        menu: '라떼',
+        print: function () {
+            console.log(this);
+        },
+    },
+};
+
+cafe.newCafe.print();
 ```
