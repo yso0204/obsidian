@@ -116,4 +116,6 @@ setInterval(function () {
     console.log(this.count);
 }.bind(this), 2000);
 ```
-`setInterval`에서 this는 Counter의 내부 이므로 
+`setInterval`에서 `this`는 Counter의 내부 이므로 `counter` 인스턴스를 가리킨다.
+그래서 `.bind(this)`는 콜백함수 안에서의 `this`를 `counter` 인스턴스로 고정하라는 뜻
+
