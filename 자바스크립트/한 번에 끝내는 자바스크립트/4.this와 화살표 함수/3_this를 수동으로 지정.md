@@ -5,10 +5,20 @@
 # 예시
 ```js
 const cafe = {
-  brand: '스타벅스',
+    brand: '스타벅스',
 };
 
 function printMenu(menu, size) {
-  console.log(`${this.brand}의 ${menu} (${size})`);
+    console.log(this);
+    console.log(`${this.brand}의 ${menu} (${size})`);
 }
+
+printMenu(cafe, '아메리카노', '톨');
 ```
+![](https://i.imgur.com/0GqlIp8.png)
+
+
+현재 `this`는 `window`를 가리키고 있어 해당 값들이 정의되지 않앗다.
+
+# `call()`
+
