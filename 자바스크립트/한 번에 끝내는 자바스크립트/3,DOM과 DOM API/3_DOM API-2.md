@@ -94,7 +94,7 @@ console.log($animalInfo.innerHTML);
 
 새로운 요소들을 쉽게 설정하고 변경할 수 있지만, 보안과 성능에 문제가 있기 때문에 가능하면 `createElement`나 `textContent`와 같은 API를 사용하는 것이 좋다.
 
-보안과 성능을 위해 innerHTML보다는 createElement나 textContent 같은 안전한 API를 사용하고, 기존 내용을 제거하려면 removeChild나 innerHTML = ''로 직접 삭제한 후 추가하면 된다.
+보안과 성능을 위해 innerHTML보다는 createElement 나 textContent 같은 안전한 API를 사용하고, 기존 내용을 제거하려면 removeChild나 innerHTML = ''로 직접 삭제한 후 추가하면 된다.
 
 ## xss 보안 문제 예시
 ```html
