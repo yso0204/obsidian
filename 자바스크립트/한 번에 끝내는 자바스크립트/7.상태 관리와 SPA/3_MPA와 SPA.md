@@ -14,4 +14,13 @@ peghun.html 을 요청하면, 해당 html에 해당하는 웹 페이지가 화�
 
 이러한 MPA는 많은 사이트들이 사용하고 있는 전통적인 방식이지만, 새로고침하듯 페이지가 바뀌고, 페이지간 이동이 느린 등의 문제가 있다.
 
-# Single page Application
+# Single Page Application
+![](https://i.imgur.com/4yf7gF8.png)
+
+SPA는 **Single Page Application** 으로 웹서버는 오직 하나의 html 파일만을 가지고 있는 단일 페이지 애플리케이션이다.
+
+SPA에서는 요청이 들어오며, 비어있는 html파일을 하나 전달하고, 링크된 자바스크립트 파일을 서버로 부터 다운로드 받는다. 
+그 다음 브라우저에서는 이 자바스크립트 파일을 직접 실행하여 파일에 작성된 여러 컴포넌트들을 직접 화면에 렌더링하게 된다.
+
+SPA에서 이렇게 특정 페이지를 요청하고, 브라우저가 직접 알맞는 화면을 렌더링하는 것을 **Client Side Rendering(CSR)** 이라고 한다.
+
