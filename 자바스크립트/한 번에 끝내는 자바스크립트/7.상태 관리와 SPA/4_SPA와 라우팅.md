@@ -18,3 +18,30 @@ React Angular, Vue 등에서는 프레임워크 측에서 자체적인 라우팅
 # History API
 > 브라우저가 관리하는 세션 히스토리로 사용자가 브라우저를 사용해 방문한 페이지들의 목록을 제얼할 수 있도록 HTML5가 제공하는 웹 API
 
+- HTML.js
+```js
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History API</title>
+</head>
+<body>
+    <h1>History API 예제</h1>
+    <button id="page1">1 페이지 보기</button>
+    <button id="page2">2 페이지 보기</button>
+    <button id="page3">3 페이지 보기</button>
+    
+    <button id="goBack">뒤로 가기</button>
+    <button id="goForward">앞으로 가기</button>
+
+    <div id="content">여기에 페이지 내용이 표시</div>
+    <script src ="/test/index.js"></script>
+</body>
+</html>
+```
+
+- index.js
+```js
+```
