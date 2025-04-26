@@ -18,7 +18,7 @@ React Angular, Vue 등에서는 프레임워크 측에서 자체적인 라우팅
 # History API
 > 브라우저가 관리하는 세션 히스토리로 사용자가 브라우저를 사용해 방문한 페이지들의 목록을 제얼할 수 있도록 HTML5가 제공하는 웹 API
 
-- HTML.js
+## HTML.js
 ```js
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +42,7 @@ React Angular, Vue 등에서는 프레임워크 측에서 자체적인 라우팅
 </html>
 ```
 
-- index.js
+## index.js
 ```js
 const changePage = (page) => {
     let $content = document.getElementById('content');
@@ -78,4 +78,10 @@ document.getElementById('goBack').addEventListener('click', goBack);
 document.getElementById('goForward').addEventListener('click', goForward);
 ```
 
-`changePage`
+### `changePage`
+파라미터로 이동할 page를 받고, id가 content인 요소를 `$content`에 담아 텍스트를 입력
+
+이후 `history`의 `pushState` 메서드를 이용하여 세션 히스토리에 현재 상태를 추가한다.
+
+![](https://i.imgur.com/qFjgmdC.png)
+
