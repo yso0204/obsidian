@@ -98,3 +98,8 @@ state에 객체로 page, 제목은 `Title ${page}` , `url`은 `/${page}`를 전�
 위에 `goBack`과 `goForward`만 하면 현재 보이는 page의 내용이 업데이트 되지 않는다.
 이를 위해 `history api`가 제공하는 `popstate`이벤트를 사용
 이는 히스토리의 값이 변경될 때, 발생되는 이벤트이다.
+
+파라미터로 `event`를 받아서 `state`의 page 값을 이용하여 현재 페이지의 `content` id를 찾아서 텍스트를 변경
+
+- 뒤로가기 버튼을 눌러서 console.log로 본 evnet
+![](https://i.imgur.com/dCu0xvH.png)
