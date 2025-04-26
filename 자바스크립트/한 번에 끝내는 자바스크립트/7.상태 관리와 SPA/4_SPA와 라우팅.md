@@ -85,3 +85,16 @@ document.getElementById('goForward').addEventListener('click', goForward);
 
 ![](https://i.imgur.com/qFjgmdC.png)
 
+![](https://i.imgur.com/CdlDxDt.png)
+
+state에 객체로 page, 제목은 `Title ${page}` , `url`은 `/${page}`를 전달
+
+### `goBack` `goForward`
+
+`history api`에 있는 `back()`과 `forward()`내장 함수를 이용하여 `click`이벤트 발생 시에 해당 기능 구현
+
+### `window.addEventListener`
+
+위에 `goBack`과 `goForward`만 하면 현재 보이는 page의 내용이 업데이트 되지 않는다.
+이를 위해 `history api`가 제공하는 `popstate`이벤트를 사용
+이는 히스토리의 값이 변경될 때, 발생되는 이벤트이다.
