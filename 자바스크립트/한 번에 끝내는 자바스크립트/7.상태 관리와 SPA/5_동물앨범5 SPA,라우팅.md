@@ -28,3 +28,17 @@ popState 추가
 
 앞,뒤 가기 버튼을 눌렀을 때 이전 페이지의 주소 값이 출력된다.
 
+이제 페이지가 변경될 수 있도록 수정해주면 아래와 같다.
+```js
+    window.addEventListener('popstate', async () => {
+        console.log(window.location.pathname);
+        const tabName = window.location.pathname.replace('/', '') || 'all';
+        this.setState({
+            ...this.state,
+            curreneTab: tabName,
+            photos: await request(tabName === 'all' ? '' : tabName),
+        })
+    })
+
+```
+현재 페이지를 tabName에 할당하여 `currentTab`과 `photos`를 수정하여 올바르게 
