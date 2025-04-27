@@ -87,6 +87,11 @@ document.getElementById('goForward').addEventListener('click', goForward);
 
 ![](https://i.imgur.com/CdlDxDt.png)
 
+`history.pushState(state, title, url);`
+state : 브라우저 이동 시 넘겨줄 데이터(popstate 에서 받아서 원하는 처리가능)
+title : 변경할 브라우저 주소(변경을 원치 않으면 null)
+url : 변경할 주소
+
 state에 객체로 page, 제목은 `Title ${page}` , `url`은 `/${page}`를 전달
 
 ### `goBack` `goForward`
