@@ -41,4 +41,9 @@ popState 추가
     })
 
 ```
-현재 페이지를 tabName에 할당하여 `currentTab`과 `photos`를 수정하여 올바르게 
+현재 페이지를 tabName에 할당하여 `currentTab`과 `photos`를 수정하여 올바르게 페이지가 렌더링 될 수 있도록 수정
+
+
+하지만, `.../panda` 이런 상태에서 새로 고침하면 에러 페이지가 나오는데 
+`Cannot GET /penguin`
+
