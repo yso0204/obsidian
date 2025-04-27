@@ -70,4 +70,67 @@ popState 추가
     };
 ```
 
-이렇게 해도 아직 
+이를 `this.updateContent`라는 함수로 묶어서 정리하면
+```js
+    this.state = {
+        // curreneTab: 'all',
+        curreneTab: window.location.pathname.replace('/','') || 'all',
+        photos:[],
+    }
+
+    const tabBar = new Tabbar({
+        $app,
+        initialState: '',
+        onClick: async (name) => {
+            // 주소에 /panda 같은 값들이 들어가게 수정
+            history.pushState(null, `${name} 사진`, name);
+            this.updateContent(name);
+        }
+    });
+
+    const content = new Content({
+        $app,
+        initialState: [],
+    });
+    
+    //상태 업데이트
+    this.setState = (newState) => {
+        this.state = newState;
+        tabBar.setState(this.state.curreneTab);
+        content.setState(this.state.photos);
+    }
+
+    this.updateContent = async (tabName) => {
+        const curreneTab = tabName === 'all' ? '' : tabName;
+        const photos = await request(curreneTab);
+        this.setState({
+            ...this.state,
+            curreneTab: tabName,
+            photos: photos,
+        });
+    };
+    //앞,뒤로 가기 이벤트 발생 시
+    window.addEventListener('popstate', async () => {
+        this.updateContent(window.location.pathname.replace('/', '') || 'all');
+        
+    })
+
+    const init = async () => {
+        try {
+            this.updateContent(window.location.pathname.replace('/', '') || 'all');
+        }
+        catch (error) {
+            console.log(error);
+        }
+    };
+
+    init();
+}
+```
+
+하지만 이렇게 해도 아직도 새로고침하면 에러가 뜨는데, 서버가 `/panda`같은 실제 파일이나 라우트를 모르기 때문이다.
+
+지금 `App.js`에서는 `history.pushState()`로 url만 `127.0.0.1/panda` 같은 형태로 바꿔준다.
+이건 브라우저 주소창에서만 바뀌고 실제 서버(local host) 는 `/panda`같은 경로를 인식하지 못한다.
+
+즉 사용자가 새로고침하면 브라우저는 서버에 `/panda`같은 경로가 있는지 요청하는데, 실제 `localhost/src/index.html`만 있고,
