@@ -47,3 +47,27 @@ popState 추가
 하지만, `.../panda` 이런 상태에서 새로 고침하면 에러 페이지가 나오는데 
 `Cannot GET /penguin`
 
+이를 위해 `init()`함수와 초기값 `this.state`를 수정
+```js
+    this.state = {
+        // curreneTab: 'all',
+        curreneTab: window.location.pathname.replace('/','') || 'all',
+        photos:[],
+    }
+
+    const init = async () => {
+        try {
+            const currentTab = this.state.curreneTab;
+            const initialPhotos = await request(currentTab === 'all' ? '' : currentTab);
+            this.setState({
+                ...this.state,
+                photos: initialPhotos,
+            })
+        }
+        catch (error) {
+            console.log(error);
+        }
+    };
+```
+
+이렇게 해도 아직 
