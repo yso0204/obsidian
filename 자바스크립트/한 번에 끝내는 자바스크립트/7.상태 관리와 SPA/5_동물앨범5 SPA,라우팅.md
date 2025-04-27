@@ -133,4 +133,8 @@ popState 추가
 지금 `App.js`에서는 `history.pushState()`로 url만 `127.0.0.1/panda` 같은 형태로 바꿔준다.
 이건 브라우저 주소창에서만 바뀌고 실제 서버(local host) 는 `/panda`같은 경로를 인식하지 못한다.
 
-즉 사용자가 새로고침하면 브라우저는 서버에 `/panda`같은 경로가 있는지 요청하는데, 실제 `localhost/src/index.html`만 있고,
+즉 사용자가 새로고침하면 브라우저는 서버에 `/panda`같은 경로가 있는지 요청하는데, 하지만 `localhost/src/index.html`만 있고, 해당 경로의 파일은 존재하지 않기 때문에 서버에서 `404` 에러를 띄운다.
+
+그렇기에 SPA 구조에서는 서버가 특정 경로에 대한 요청을 받았을 때, 항상 `index.html`을 반환하도록 설정해주어야 어떤 코드가 들어오더라도 `index.html`을 읽고 정상적으로 `App.js`가 실행될 수 있다.
+
+하지만, vsCode의 extension liveserver는 이러한 기능을 지원하지 않으므로 `node.js`와 `express.js` 같은 서버 사이드 기술을 사용하여 구성해야 한다.
