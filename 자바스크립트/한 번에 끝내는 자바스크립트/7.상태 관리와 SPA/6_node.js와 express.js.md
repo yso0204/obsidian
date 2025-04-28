@@ -56,3 +56,33 @@ app.get('/*name', (req, res) => {
 })
 ```
 클라이언트에서 요청이 들어오면 `res`을 사용하여 응답으로 `index.html`을 전달
+
+
+## 라우팅
+`express` 애플리케이션에서 서버를 시작하고, 지정한 3000 포트에서 요청을 들을 수 있도록 설정
+
+```js
+app.listen(PORT, () => {
+    console.log('START SERVER');
+});
+```
+
+## `server.js`
+```js
+const express = require('express');
+const path = require('path');
+const app = express();
+const PORT = 3000
+
+app.use(express.static(path.join(__dirname, '..')));
+
+app.get('/*name', (req, res) => {
+    res.sendFile(path.join(__dirname,'..','index.html'))
+})
+
+app.listen(PORT, () => {
+    console.log('START SERVER');
+});
+```
+
+node로 해당 서버 실행 후 `localhost:3000`에서 확인하면 `/panda`등에 진입 후 새로고침해도 알맞은 화면을 보여주는 것을 볼 수 있다.
