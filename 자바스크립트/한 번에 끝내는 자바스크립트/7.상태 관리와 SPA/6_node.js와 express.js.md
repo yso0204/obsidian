@@ -25,3 +25,8 @@ const PORT = 3000;
 `app.use`라는 메서드를 사용하여 express 애플리케이션에 미들웨어를 추가해준다.
 
 미들웨어란, express.js와 같은 웹 프레임워크에서 `request`와 `response`객체를 수정 및 종료하고, `request`를 보내는 기능을 할 수 있도록 도와주는 함수
+
+`app.use(express.static(__dirname + './..'));` 
+이렇게 `express.static()`을 사용하면 정적 파일을 제공하는 미들웨어를 생성할 수 있다. `static`함수에는 제공할 정적파일, 여기서는 `index.html`에 접근할 수 있도록 `server.js`파일의 상위 폴더를 지정
+
+`__dirname`을 사용하면 
