@@ -17,3 +17,11 @@ const PORT = 3000;
 - 파일 시스템의 경로를 다루기 위해 사용되는 path 모듈 불러오기
 - express 함수를 호출해서 express 애플리케이션 객체를 생성
 - 서버가 계속해서 듣고 있을 포트 번호 설정
+
+![](https://i.imgur.com/hONDgvy.png)
+
+우리가 원하는 건 이러한 구조에서 서버가 항상 `index.html`을 반환해 주는 것
+
+`app.use`라는 메서드를 사용하여 express 애플리케이션에 미들웨어를 추가해준다.
+
+미들웨어란, express.js와 같은 웹 프레임워크에서 `request`와 `response`객체를 수정 및 종료하고, `request`를 보내는 기능을 할 수 있도록 도와주는 함수
