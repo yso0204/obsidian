@@ -95,3 +95,20 @@ node로 해당 서버 실행 후 `localhost:3000`에서 확인하면 `/panda`등
 | 4   | `App` 객체가 생성될 때 `window.location.pathname`을 읽음​ |
 | 5   | `/panda`에 맞게 API 요청해서 판다 사진을 불러옴​               |
 | 6   | 화면에 판다 사진이 다시 출력                                |
+[클라이언트(브라우저)]
+    ↓ (HTTP 요청)
+[index.html 요청]
+    ↓
+[서버: HTML 파일 제공]
+    ↓
+[index.html에서 src/*.js 파일 추가 요청]
+    ↓
+[서버: JS 파일 제공]
+    ↓
+[브라우저: JS 파일 실행, 화면 렌더링]
+    ↓
+[App.js가 API 서버로 데이터 fetch 요청]
+    ↓
+[API 서버: JSON 데이터 응답]
+    ↓
+[Content.js가 사진을 화면에 그려줌]
