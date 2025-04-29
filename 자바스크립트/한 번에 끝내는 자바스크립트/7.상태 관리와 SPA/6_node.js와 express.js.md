@@ -114,3 +114,6 @@ node로 해당 서버 실행 후 `localhost:3000`에서 확인하면 `/panda`등
 [Content.js가 사진을 화면에 그려줌]
 
 ![](https://i.imgur.com/BFL3OLg.png)
+
+![](https://i.imgur.com/YEJ6Zas.png)
+
