@@ -97,7 +97,38 @@ export const counterReducer = (state = initialState, action) => {
 ### API 호출을 하면 안되는 이유?
 기본적으로 동일 입력 -> 동일 출력을 보장해야 하는데, 
 API 호출은?
-- 비도
+- 비동기적
+- 외부 세계에 의존(네트워크, 서버 등의 상태에 의존)
+
+만약
+```js
+const reducer = (state= initialState,action) ->{
+	switch(action.type){
+		case 'FETCH_DATA':
+			const reponse = fetch(api...);
+			const data = response.json();
+			return{
+				...state,
+				data
+			}
+	}
+}
+```
+이런 형태라면
+1. reducer는 동기적이여야 하는 원칙이 깨짐
+2. reducer는 순수 함수여야 하는데, 외부 API 호출은 side effect
+3. reducer 내부의 타임머신 디버깅 / 시간 재생 기능이 깨짐
+
+#### API 호출은 어디서?
+**Middleware** 를 사용
+- Redux Thunk
+- Redux Saga
+
+흐름 예시
+```
+User Input -> dispatch(action) -> middleware에서 API 호출 -> 정상적인 Action dispatch
+-> reducer -> view 
+```
 # index.js
 ```js
 import React from 'react';
