@@ -102,6 +102,11 @@ root.render(
 ```
 - `Provider` 는 Contex API를 이용해 store를 React 앱에 제공
 
+## Reducer는 왜 순수 함수로 만들어야하는가?
+순수 함수란
+- 같은 입력 -> 항상 같은 출력
+- 외부 상태 변경 금지(사이드 이펙트 등 방지)
+이걸 강제하는 이유는
 
 # app.js
 ```js
