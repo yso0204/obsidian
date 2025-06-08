@@ -127,8 +127,40 @@ const reducer = (state= initialState,action) ->{
 흐름 예시
 ```
 User Input -> dispatch(action) -> middleware에서 API 호출 -> 정상적인 Action dispatch
--> reducer -> view 
+-> reducer -> state 업데이트 
 ```
+
+아래는 Thunk 사용 예시
+1. 사용자가 버튼 클릭 : `dispatch(fetchData())` 실행
+2. `fetchData()`는 thunk 함수로 API 호출 후 `dispatch({type:'FETCH_SUCCESS',payload:data})` 를 dispatch
+3. Reducer는 `FETCH_SUCCESS` action을 보고 state를 업데이트
+```js
+// action.js
+export const fetchData = () => {
+	return async (dispatch) => {
+		const response = awiat fetch(API...);
+		const data = response.json();
+
+		dispatch({
+			type: 'FETCH_SUCCESS',
+			payload : data
+		});
+	}
+}
+```
+
+```js
+// reducer.js
+case 'FETCH_SUCCESS':
+	return {
+		...state,
+		data : action.payload
+	}
+```
+
+- Reducer는 여전히 순수하게 Action을 받아서 상태만 업데이트
+- API는 Thunk(middleware)가 처리
+
 # index.js
 ```js
 import React from 'react';
