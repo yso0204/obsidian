@@ -120,7 +120,7 @@ const reducer = (state= initialState,action) ->{
 3. reducer 내부의 타임머신 디버깅 / 시간 재생 기능이 깨짐
 
 #### API 호출은 어디서?
-**Middleware** 를 사용
+[[미들웨어]]**Middleware** 를 사용
 - Redux Thunk
 - Redux Saga
 
