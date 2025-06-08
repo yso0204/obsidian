@@ -94,6 +94,10 @@ export const counterReducer = (state = initialState, action) => {
 - 타임머신과 같이, Action을 re-play 해도 동일한 결과를 보장
 
 만약 Reducer가 랜덤 값이나, API를 호출하면 예측이 불가함
+### API 호출을 하면 안되는 이유?
+기본적으로 동일 입력 -> 동일 출력을 보장해야 하는데, 
+API 호출은?
+- 비도
 # index.js
 ```js
 import React from 'react';
