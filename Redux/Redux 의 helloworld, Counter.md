@@ -107,7 +107,11 @@ root.render(
 - 같은 입력 -> 항상 같은 출력
 - 외부 상태 변경 금지(사이드 이펙트 등 방지)
 이걸 강제하는 이유는
+- 상태 변경이 "예측 가능"
+- Action -> Reducer -> State 변경 이라는 **기록 가능한 흐름** 유지
+- 타임머신과 같이, Action을 re-play 해도 동일한 결과를 보장
 
+만약 Reducer가 랜덤 값이나, API를 호출하면 예측이 불가함
 # app.js
 ```js
 import React from "react";
@@ -130,4 +134,19 @@ function App() {
 export default App;
 ```
 - view 역할을 한다. 현재 카운트와 버튼 2개로 + - 를 제공
+
+## Dispatch, 왜 Action을 dispatch 하는가?
+그냥 state.count ++ 하면 안되는가?
+- 이렇게 되면 언제, 누가 바꿨는지 기록이 불가능하다.
+- Redux는 반드시 **dispatch(action)** 을 통해서만 상태변경을 허용(action log 기록 가능하여 debugging이 쉬움)
+- Action -> Reducer -> store -> view 업데이트 이게 유지되어야함
+	- 항상 위의 흐름을 따르기에 동작이 예측 가능
+
+## useSelector, useDispatch 를 사용하는 이유?
+`useSelector` : Store에 저장된 상태 중 필요한 값을 "구독"
+- 값이 변경되면, 자동으로 컴포넌트 리렌더링
+
+`useDispatch` : Action을 발생시키는 함수 제공
+- 유저 인터렉션 -> dispatch -> 상태 변경 -> view 업데이트
+
 
