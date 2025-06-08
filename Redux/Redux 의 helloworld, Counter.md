@@ -84,7 +84,16 @@ export const counterReducer = (state = initialState, action) => {
 
 ```
 - reducer는 **순수 함수**여야하고, **새로운 state 객체를 반환**해야한다.
+## Reducer는 왜 순수 함수로 만들어야하는가?
+순수 함수란
+- 같은 입력 -> 항상 같은 출력
+- 외부 상태 변경 금지(사이드 이펙트 등 방지)
+이걸 강제하는 이유는
+- 상태 변경이 "예측 가능"
+- Action -> Reducer -> State 변경 이라는 **기록 가능한 흐름** 유지
+- 타임머신과 같이, Action을 re-play 해도 동일한 결과를 보장
 
+만약 Reducer가 랜덤 값이나, API를 호출하면 예측이 불가함
 # index.js
 ```js
 import React from 'react';
@@ -102,16 +111,7 @@ root.render(
 ```
 - `Provider` 는 Contex API를 이용해 store를 React 앱에 제공
 
-## Reducer는 왜 순수 함수로 만들어야하는가?
-순수 함수란
-- 같은 입력 -> 항상 같은 출력
-- 외부 상태 변경 금지(사이드 이펙트 등 방지)
-이걸 강제하는 이유는
-- 상태 변경이 "예측 가능"
-- Action -> Reducer -> State 변경 이라는 **기록 가능한 흐름** 유지
-- 타임머신과 같이, Action을 re-play 해도 동일한 결과를 보장
 
-만약 Reducer가 랜덤 값이나, API를 호출하면 예측이 불가함
 # app.js
 ```js
 import React from "react";
