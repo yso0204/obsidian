@@ -31,7 +31,8 @@ export const store = createStore(counterReducer);
 - 상태 변경 흐름이 예측 가능 -> 문제 발생 시 추적이 가능
 
 그냥 컴포넌트에서 `useState`를 쓰면 안되나?
-- 작은 앱에서는 이게 더 낫지만, 컴포넌트의 뎁스가 깊어지면, 부모 자식 간의 
+- 작은 앱에서는 이게 더 낫지만, 컴포넌트의 뎁스가 깊어지면, 부모 자식 간의 주고받는 횟수가 많아지고, 추적이 어려워짐
+- **전역 상태** 가 필요할 때는 Redux가 유리하다.
 # action.js
 ```js
 export const INCREMENT = 'INCREMENT';
@@ -47,6 +48,15 @@ export const decrement = () => ({
 ```
 - 액션은 객체이고, `type` 필드는 필수
 
+## action은 왜 객체로 상태 변경을 요청 하는가?
+> 상태 변경을 설명하는 것은 "무슨 일이 일어 났는지"를 말해주는 것
+
+`{type : 'INCREMENT'}` 
+이것만 보더라도, 카운터를 증가시키는 요청임을 알 수 있다.
+- action은 기록으로 남길 수 있다.
+- action log를 찍으면 언제 무슨 일이 있었는지 다 확인 가능하다.
+
+함수 호출보다 더 '명확하게 기록'되는 구조
 # reducers.js
 ```js
 import { INCREMENT, DECREMENT } from "./action";
