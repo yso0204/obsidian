@@ -16,7 +16,7 @@ User input -> dispatch(action) -> reducer(state 변경) -> store(state 저장) -
 - store 변경 -> view가 업데이트 된다.
 
 
-# store
+# store.js
 ```js
 import { createStore } from 'redux';
 import { counterReducer } from './reducers';
@@ -24,7 +24,15 @@ import { counterReducer } from './reducers';
 export const store = createStore(counterReducer);
 ```
 
-# action
+## 왜 중앙 상태 창고가 필요한가?
+중앙 창고에서 상태를 관리하면, 
+- 앱 전체에서 '현재 상태가 뭔지' 한 군데서 확인이 가능
+- 어떤 컴포넌트든 동일한 상태에 접근 가능
+- 상태 변경 흐름이 예측 가능 -> 문제 발생 시 추적이 가능
+
+그냥 컴포넌트에서 `useState`를 쓰면 안되나?
+- 작은 앱에서는 이게 더 낫지만, 컴포넌트의 뎁스가 깊어지면, 부모 자식 간의 
+# action.js
 ```js
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
@@ -39,7 +47,7 @@ export const decrement = () => ({
 ```
 - 액션은 객체이고, `type` 필드는 필수
 
-# reducers
+# reducers.js
 ```js
 import { INCREMENT, DECREMENT } from "./action";
 
@@ -86,3 +94,25 @@ root.render(
 
 
 # app.js
+```js
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { increment, decrement } from "./redux/action";
+
+function App() {
+  const count = useSelector((state) => state.count);
+  const dispatch = useDispatch();
+
+  return (
+    <div style={{textAlign:'center',marginTop:'50px'}}>
+      <h1>Counter: {count}</h1>
+      <button onClick={() => dispatch(increment())} >Increment</button>
+      <button onClick={() => dispatch(decrement())} >Decrement</button>
+    </div>
+  )
+}
+
+export default App;
+```
+- view 역할을 한다. 현재 카운트와 버튼 2개로 + - 를 제공
+
