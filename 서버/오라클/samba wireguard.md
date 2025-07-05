@@ -111,3 +111,13 @@ wireguard 재시작
 ```
 sudo systemctl restart wg-quick@wg0
 ```
+
+
+중지
+```
+# 현재 실행 중인 wg-quick 서비스 중지
+sudo systemctl stop wg-quick@wg0
+
+# 다음 부팅 시 자동 시작도 막기
+sudo systemctl disable wg-quick@wg0
+```
