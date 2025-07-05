@@ -1,3 +1,4 @@
+# 서버
 wiredguard 설치
 ```
 sudo apt update && sudo apt install wireguard -y
@@ -50,4 +51,10 @@ sudo systemctl enable wg-quick@wg0
 서버에서 작동 확인
 ```
 sudo wg
+```
+
+# 클라이언트
+서버에서 아래 명령으로 클라이언트 키 생성
+```
+wg genkey | tee client1_privatekey | wg pubkey > client1_publickey
 ```
