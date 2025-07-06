@@ -139,7 +139,32 @@ print(f"{name}의 점수는 {score:.1f}점입니다.")
 `format()`에서 사용하던 포맷티을 그대로 사용 가능하다.
 
 ## 정렬 및 채우기
+```python
+text = 'hi'
+
+print(f'{text:<10}')
+print(f'{text:>10}')
+print(f'{text:^10}')
+print(f'{text:#^10}')
+```
+
+```
+hi        
+        hi
+    hi
+####hi####
+```
 
 ## 숫자 포맷
+```python
+pi = 3.141592
+print(f"{pi:.2f}")      # 소수점 둘째 자리까지
+print(f"{1000000:,}")   # 천 단위 구분
+print(f"{255:x}")       # 16진수
+print(f"{0.123:.1%}")   # 퍼센트
+```
+```
+
+```
 
 ## 표현식 사용
