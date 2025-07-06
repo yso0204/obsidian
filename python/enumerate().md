@@ -110,3 +110,47 @@ for문이 돌아갈 때 마다 `my_enumerate(nums)` 가 내부적으로 `yield`�
 |---|---|---|---|
 |일반 함수|`return`|바로 종료|❌|
 |제너레이터|`yield`|값 주고 일시정지|✅ 함수 내부 상태 기억함|
+
+# dictionary에서의 enumerate
+## dictionary에 enumerate 반복?
+단순히 dictionary에 enumerate를 사용하면 의도와는 다소 다를 수 있다.
+```python
+dic = {
+    'a':'A',
+    'b':'B',
+    'c':'C'
+}
+
+print(dic.items())
+
+for key,value in dic.items():
+    print(f'dic[{key}]={value}')
+
+dic[a]=A
+dic[b]=B
+dic[c]=C
+
+for key,value in enumerate(dic):
+    print(f'dic[{key}] : {value}')
+
+dic[0] : a
+dic[1] : b
+dic[2] : c
+```
+
+우리는 `key`와 `value`가 나오지 않을까? 라고 예상했지만 `dictionary`는 반복하면 기본적으로 `key`만 꺼내기 때문에 `enumerate`는 `key`값에 번호만 붙인 형태가 된다.
+
+
+## `items()` 사용
+```python
+for i, (key, value) in enumerate(dic.items()):
+    print(i, key, value)
+
+0 a A
+1 b B
+2 c C
+```
+
+여기서 `items()`는 dictionary의 `(key,value)`쌍을 꺼내준다.
+`enumerate`는 여기에 번호만 붙이는 것
+
