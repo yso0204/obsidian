@@ -14,4 +14,20 @@ range(10, 0, -1) → 10, 9, ..., 1
 
 # `range()`는 리스트인가?
 `range()`는 range 객체로 리스트가 아니다.
-메모리에 모든 값을 저장하는 `list`와 달리 필요할 때 마다 하나
+메모리에 모든 값을 저장하는 `list`와 달리 필요할 때 마다 하나씩 생성하는 `lazy evaluation` 이다.
+
+## 메모리 비교
+```python
+import sys
+
+print(sys.getsizeof(range(1000000)))
+print(sys.getsizeof(list(range(1000000))))
+
+48
+8000056
+```
+
+## type?
+```python
+print(t)
+```
