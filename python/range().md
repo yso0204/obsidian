@@ -29,5 +29,20 @@ print(sys.getsizeof(list(range(1000000))))
 
 ## type?
 ```python
-print(t)
+print(type(range(5)))
+
+<class 'range'>
 ```
+- 리스트나 튜플이 아닌 range 객체
+- `__iter__()` 메서드를 갖고 있어서 반복 가능한 iterable
+
+| 특징     | 내용                           |
+| ------ | ---------------------------- |
+| 기본 형식  | `range(start, stop, step)`   |
+| 포함 범위  | 시작값 포함, 끝값 제외 (`stop - 1`까지) |
+| 타입     | `range` 객체 (`list` 아님)       |
+| 메모리    | 매우 효율적 (지연 계산 방식)            |
+| 리스트 변환 | `list(range(...))`로 가능       |
+| 반복 사용  | `for`, `in` 문에서 매우 유용        |
+| 사용 이유  | 빠르고, 가볍고, 범위 생성에 특화됨         |
+
