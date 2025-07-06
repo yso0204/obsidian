@@ -66,3 +66,36 @@ for i, num in enumerate(nums):
 
 
 # enumrate() 의 내부 구조
+내부적으로 아래와 같은 `generate` 객체를 생성한다.
+반복 가능한데, 값은 **하나씩 천천히(lazy evalutaion)** 제공하는 구조
+```python
+def my_enumerate(iterable, start = 0) :
+    n = start
+    for elem in iterable:
+        yield n,elem # 여기서 값 하나 보내주고, 다음 호출이 올 때까지 "멈춤"
+        n += 1
+```
+
+실제 동작을 보면
+```python
+nums = [4, 8, 15, 16, 23, 42]
+
+def my_enumerate(iterable, start = 0) :
+    n = start
+    for elem in iterable:
+        yield n,elem
+        n += 1
+        
+for i, num in my_enumerate(nums):
+    if num % 2 == 0:
+        print(f"{i}번째 요소 {num}은 짝수입니다.")
+
+0번째 요소 4은 짝수입니다.
+1번째 요소 8은 짝수입니다.
+3번째 요소 16은 짝수입니다.
+5번째 요소 42은 짝수입니다.
+```
+
+for문이 돌아갈 때 마다 `my_enumerate(nums)` 가 내부적으로 `yield`를 호출해서 다음 값을 생성
+1. `i,num = next(my_enumerate)` - `yield 0,4`
+2. `i,num = next(my_enumerate)` - `yield 1,8`
