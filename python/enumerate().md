@@ -31,4 +31,38 @@ for i, fruit in enumrate(fruits):
 # 활용 예제
 ## 문자열 순회
 ```python
+for idx, ch in enumerate("hello"):
+    print(idx, ch)
+0 h
+1 e
+2 l
+3 l
+4 o
 ```
+
+## 인덱스 1부터 시작
+```python
+fruits = ['apple', 'banana', 'cherry']
+for idx, fruit in enumerate(fruits, start=1):
+    print(f"{idx}. {fruit}")
+1. apple
+2. banana
+3. cherry
+```
+
+## 특정 조건을 만족하는 인덱스만 추출
+```python
+nums = [4, 8, 15, 16, 23, 42]
+
+for i, num in enumerate(nums):
+    if num % 2 == 0:
+        print(f"{i}번째 요소 {num}은 짝수입니다.")
+
+0번째 요소 4은 짝수입니다.
+1번째 요소 8은 짝수입니다.
+3번째 요소 16은 짝수입니다.
+5번째 요소 42은 짝수입니다.
+```
+
+
+# enumrate() 의 내부 구조
