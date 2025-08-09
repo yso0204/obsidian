@@ -59,4 +59,19 @@ mindmap
 - 클래스(class) : 객체를 만들기 위한 설계도
 - 객체(object) : class 에서 생성된 실제 인스턴스
 - 속성(attribute) : 객체가 가진 데이터
-- 매서드(method) : 객체가 수행하는 동작
+- 메서드(method) : 객체가 수행하는 동작
+- 생성자(Constructor) : 객체 생성 시 초기화 담당 메서드
+- 오버라이딩(Overriding) : 상속받은 메서드를 재정의
+- 합성(Composition) : 객체가 다른 객체를 속성으로 포함하는 관계("has-a")
+
+# 예시로 이해하는 OOP
+## 클래스와 객체
+```python
+class Car :
+	def __init__(self,brand,model):
+		self.brand = brand
+		self.model = model
+
+	def drive(self) :
+		print(f"{self.brand} {self.model}")
+```
