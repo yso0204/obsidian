@@ -260,4 +260,9 @@ dog.speak()  # 바둑이: 왈...
 | O   | Open/Closed<br>Principle              | 개방-폐쇄 원칙    | 확장에는 열려 있고, 수정에는 닫혀 있어야한다.               |
 | L   | Liskov<br>Substitution<br>Principle   | 리스코프 치환 원칙  | 부모 타입 대신 자식 타입을 넣어도 동작에 문제가 없어야한다.       |
 | I   | Interface<br>Segregation<br>Principle | 인터페이스 분리 원칙 | 큰 인터페이스 대신, 필요한 기능만 담은 작은 인터페이스 여러개로 나눠라 |
-| D   |                                       |             |                                          |
+| D   | Dependency<br>Inversion<br>Principle  | 의존 역전 원칙    | 구체 클래스보다 추상(인터페이스/추상 클래스)에 의존해라          |
+## 세부 내용
+
+### S - 단일 책임 원칙
+> 클래스는 "하나의 책임"만 가져야 하고, 변경 이유도 하나여야 한다.
+
