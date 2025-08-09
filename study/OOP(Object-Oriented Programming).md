@@ -247,4 +247,6 @@ dog.speak()  # 바둑이: 멍멍!
 dog.sound_strategy = QuietBarkStrategy()
 dog.speak()  # 바둑이: 왈...
 ```
-- `Animal`
+- `Animal` 클래스는 소리내는 방법을 직접 갖고 있지 않고, BarkStartegy라는 객체에 맡김
+- 실행 중에도, `sound_strategy`를 다른 전략으로 교체 가능
+
