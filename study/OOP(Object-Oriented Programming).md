@@ -131,6 +131,17 @@ Meow
 
 ## 절차 지향
 ```python
+dog_name = "바둑이"
+cat_name = "나비"
+
+def dog_speak(name):
+    print(f"{name}: 멍멍!")
+
+def cat_speak(name):
+    print(f"{name}: 야옹!")
+
+dog_speak(dog_name)
+cat_speak(cat_name)
 ```
 
 ## 객체 지향
