@@ -66,6 +66,8 @@ mindmap
 
 # 예시로 이해하는 OOP
 ## 클래스와 객체
+> 클래스는 객체를 만들기 위한 설계도이고, 객체는 그설계도를 기반으로 생성된 실체
+
 ```python
 class Car :
 	def __init__(self,brand,model):
@@ -79,6 +81,8 @@ myCar.drive() # Teslas Model S is driving
 ```
 
 ## 상속(Inheritance)
+> 기존 클래스를 기반으로 새로운 클래스를 만들고 기능을 추가
+
 ```python
 class ElectricCar(Car):
     def charge(self):
@@ -90,6 +94,8 @@ my_electric_car.charge() # Tesla Model X is charging!
 
 
 ## 캡슐화(Encapsulation)
+> `__brand` 처럼 속성을 private으로 선언해 외부에서 직접 접근을 막고, 메서드를 통해 접근하도록 함
+
 ```python
 class Car:
     def __init__(self, brand, model):
@@ -106,6 +112,8 @@ print(my_car.__brand) # error
 ```
 
 ## 다형성(Polymorphism)
+> 같은 메서드(speak)를 호출하지만, 객체 타입에 따라 다른 동작을 수행
+
 ```python
 class Animal:
     def speak(self):
@@ -130,6 +138,8 @@ Meow
 # 절차 지향 -> OOP 예시
 
 ## 절차 지향
+> 데이터와 함수를 따로 관리하며, 종이 늘어날 수록 함수와 분기문도 함께 늘어나는 방식
+
 ```python
 dog_name = "바둑이"
 cat_name = "나비"
@@ -145,5 +155,7 @@ cat_speak(cat_name)
 ```
 
 ## 객체 지향
+> 동물이라는 공통 클래스를 만들고, 각 동물별 동작을 상속/오버라이딩으로 정의하여 확장성과 유지보
+
 ```python
 ```
