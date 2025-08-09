@@ -196,4 +196,55 @@ for i in zoo :
 상속만 쓰다 보면, 아래와 같은 문제가 발생함
 - 부모 클래스가 바뀌면 모든 자식 클래스가 영향을 받음(결합도 높음)
 - 여러 동작을 조합해야 하면, **다중 상속 문제** 가 생김
-- 
+- 런타임(실행 중)에 행동을 바꾸기가 어려움
+
+## 전략 패턴(Strategy Pattern) 이란?
+- 행동(전략)을 별도 객체로 분리해서, 필요해서 끼워 넣는 방식
+- 즉, 상속 대신 객체를 주입해서 행동을 바꾸는 구조
+- 실행 중에도 전략을 바꿀 수 있음 -> 유연한 구조
+
+## 예시
+
+### 상속
+```python
+class Animal:
+    def speak(self):
+        pass
+
+class Dog(Animal):
+    def speak(self):
+        print("멍멍!")
+
+class Cat(Animal):
+    def speak(self):
+        print("야옹!")
+```
+- `Dog`이 짖는 방법을 바꾸고 싶다면 `Dog` 클래스를 수정
+- 새로운 짖는 방식이 필요하면, 또 다른 자식 클래스가 필요함
+
+### 합성(전략 패턴)
+```python
+class BarkStrategy:
+    def sound(self, name):
+        return f"{name}: 멍멍!"
+
+class QuietBarkStrategy:
+    def sound(self, name):
+        return f"{name}: 왈..."
+
+class Animal:
+    def __init__(self, name, sound_strategy):
+        self.name = name
+        self.sound_strategy = sound_strategy
+
+    def speak(self):
+        print(self.sound_strategy.sound(self.name))
+
+dog = Animal("바둑이", BarkStrategy())
+dog.speak()  # 바둑이: 멍멍!
+
+# 실행 중에 짖는 방식 변경 가능
+dog.sound_strategy = QuietBarkStrategy()
+dog.speak()  # 바둑이: 왈...
+```
+- `Animal`
