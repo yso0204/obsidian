@@ -73,5 +73,32 @@ class Car :
 		self.model = model
 
 	def drive(self) :
-		print(f"{self.brand} {self.model}")
+		print(f"{self.brand} {self.model} is driving")
+myCar = Car("Tesla","Model S")
+myCar.drive() # Teslas Model S is driving
+```
+
+## 상속(Inheritance)
+```python
+class ElectricCar(Car):
+    def charge(self):
+        print(f"{self.brand} {self.model} is charging!")
+
+my_electric_car = ElectricCar("Tesla", "Model X")
+my_electric_car.charge()
+```
+
+
+## 캡슐화(Encapsulation)
+```python
+class Car:
+    def __init__(self, brand, model):
+        self.__brand = brand  # private 속성
+        self.model = model
+
+    def get_brand(self):
+        return self.__brand
+
+my_car = Car("Tesla", "Model S")
+print(my_car.get_brand())
 ```
