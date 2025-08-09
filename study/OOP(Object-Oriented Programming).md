@@ -266,3 +266,49 @@ dog.speak()  # 바둑이: 왈...
 ### S - 단일 책임 원칙
 > 클래스는 "하나의 책임"만 가져야 하고, 변경 이유도 하나여야 한다.
 
+```python
+# 단일 책임 위반: 데이터 저장과 출력 책임이 한 클래스에 있음
+class Report:
+    def save_to_file(self, data):
+        pass
+    def print_report(self):
+        pass
+
+# 단일 책임 준수
+class ReportSaver:
+    def save_to_file(self, data):
+        pass
+
+class ReportPrinter:
+    def print_report(self, report):
+        pass
+```
+- 이렇게 분리되면, 저장 방식이 바뀌어도 출력 기능에는 영향이 없음
+
+### O - 개방-폐쇄 원칙
+> 기능 확장은 가능하지만, 기존 코드를 수정하지 않게 설계
+
+```python
+#위반: 새로운 동물 추가할 때마다 if문 수정
+def speak(animal_type):
+    if animal_type == "dog":
+        print("멍멍!")
+    elif animal_type == "cat":
+        print("야옹!")
+
+#준수: 상속으로 확장 가능
+class Animal:
+    def speak(self):
+        pass
+
+class Dog(Animal):
+    def speak(self):
+        print("멍멍!")
+
+class Cat(Animal):
+    def speak(self):
+        print("야옹!")
+```
+- 새로운 동물 클래스만 추가하면 기존 코드를 수정할 필요 없음
+
+### L -리스코프 치환 원칙
