@@ -56,6 +56,7 @@ mindmap
 ```
 
 # 주요 용어
-- Clas
-
-
+- 클래스(class) : 객체를 만들기 위한 설계도
+- 객체(object) : class 에서 생성된 실제 인스턴스
+- 속성(attribute) : 객체가 가진 데이터
+- 매서드(method) : 객체가 수행하는 동작
