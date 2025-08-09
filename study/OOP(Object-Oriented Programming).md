@@ -85,7 +85,7 @@ class ElectricCar(Car):
         print(f"{self.brand} {self.model} is charging!")
 
 my_electric_car = ElectricCar("Tesla", "Model X")
-my_electric_car.charge()
+my_electric_car.charge() # Tesla Model X is charging!
 ```
 
 
@@ -100,5 +100,39 @@ class Car:
         return self.__brand
 
 my_car = Car("Tesla", "Model S")
-print(my_car.get_brand())
+print(my_car.model) # Model S
+print(my_car.get_brand()) # Tesla
+print(my_car.__brand) # error
+```
+
+## 다형성(Polymorphism)
+```python
+class Animal:
+    def speak(self):
+        print("Animal speaks")
+
+class Dog(Animal):
+    def speak(self):
+        print("Woof")
+
+class Cat(Animal):
+    def speak(self):
+        print("Meow")
+
+animals = [Dog(), Cat()]
+for animal in animals:
+    animal.speak()
+
+Woof
+Meow
+```
+
+# 절차 지향 -> OOP 예시
+
+## 절차 지향
+```python
+```
+
+## 객체 지향
+```python
 ```
