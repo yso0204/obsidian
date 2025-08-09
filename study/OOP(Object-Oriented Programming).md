@@ -158,4 +158,29 @@ cat_speak(cat_name)
 > 동물이라는 공통 클래스를 만들고, 각 동물별 동작을 상속/오버라이딩으로 정의하여 확장성과 유지보수성을 높임
 
 ```python
+class Animal:
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        print(f"{self.name}: ...")
+
+class Dog(Animal):
+    def speak(self):
+        print(f"{self.name}: 멍멍!")
+
+class Cat(Animal):
+    def speak(self):
+        print(f"{self.name}: 야옹!")
+
+zoo = [Dog('바둑이'),Cat('나비')]
+
+for i in zoo :
+    i.speak()
+
+바둑이: 멍멍!
+나비: 야옹!
 ```
+
+# 상속보다 합성이 좋은 경우
+> 동물의 소리내는 방식을 별도 객체로 분리해 상속 없이도 행동을 바꿀 수 있는 구조
+
