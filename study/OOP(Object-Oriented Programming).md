@@ -387,7 +387,26 @@ class Scanner:
 
 ### D - 의존 역전 원칙
 > 고수준 모듈은 저수준 모듈에 의존하지 않고, 둘 다 추상에 의존해야 한다.
-> 즉, 구체적인 것에 기대지 말고, 추상적인 것에 의존하라
+> 즉, 구체적인 것에 기대지 말고, 추상적인 것/인터페이스 에 의존하라
 
+#### 위반
+```python
+class EmailSender:
+    def send(self,msg):
+        print('이메일 전송:',msg)
+
+class NotificationService:
+    def __init__(self):
+        self.sender = EmailSender()
+
+    def notify(self,msg):
+        self.sender.send(msg)
+```
+- NotificationService는 EmailSender에 직접 연결되어 있음
+- 나중에 다른 메신저를 이용하고 싶다면 코드를  뜯어 고쳐야 함
+
+#### 추상/인터페이스에 의존
+```python
+```
 
 
