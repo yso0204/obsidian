@@ -324,8 +324,15 @@ class Penguin(Bird):
     def fly(self):
         raise Exception("펭귄은 날 수 없음")  # 위반
 
-def make_bird_fly(bird: Bird):
-	bird.fly() # Bird라고 믿고 fly() 호출
+class eagle(Bird):
+    def a(self):
+        print("a")
 
+def make_bird_fly(bird: Bird):
+    bird.fly() # Bird라고 믿고 fly() 호출
+
+make_bird_fly(eagle()) # 날 수 있음 정상 출력
 make_bird_fly(Penguin()) # 예외발생, LSP 위반
 ```
+- Bird 타입이면 다 날 수 있다고 fly()를 호출했으나 Penguin이 계약을 어김
+- 이렇게 되면 Bird를 사용하는 모든 코드에 펭귄을 예외 처리 해야함
