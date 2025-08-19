@@ -316,5 +316,16 @@ class Cat(Animal):
 > 즉, 부모 클래스(인터페이스)를 사용하는 쪽은 그게 정확히 어떤 자식인지 몰라도, 동일하게 동작해야한다.
 
 ```python
+class Bird:
+    def fly(self):
+        print("날 수 있음")
 
+class Penguin(Bird):
+    def fly(self):
+        raise Exception("펭귄은 날 수 없음")  # 위반
+
+def make_bird_fly(bird: Bird):
+	bird.fly() # Bird라고 믿고 fly() 호출
+
+make_bird_fly(Penguin()) # 예외발생, LSP 위반
 ```
