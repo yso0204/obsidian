@@ -363,3 +363,31 @@ make_bird_fly(Eagle())  # 정상
 make_bird_fly(Penguin())  # 컴파일/런타임 전부터 걸러짐
 ```
 - 이렇게 하면 날 수 있는 새와 날 수 없는 새가 구분되어 함수가 잘못된 객체를 받는 상황이 사라짐
+
+### I - 인터페이스 분리 원칙
+> 클라이언트가 쓰지 않는 메서드에 의존하게 만들지 마라
+
+```python
+# 불필요한 메스드를 강제 구현함
+class Machine:
+    def print(self):
+        pass
+    def scan(self):
+        pass
+    def fax(self):
+        pass
+# 필요한 기능만 담은 인터페이스로 분리
+class Printer:
+    def print(self):
+        pass
+class Scanner:
+    def scan(self):
+        pass
+```
+
+### D - 의존 역전 원칙
+> 고수준 모듈은 저수준 모듈에 의존하지 않고, 둘 다 추상에 의존해야 한다.
+> 즉, 구체적인 것에 기대지 말고, 추상적인 것에 의존하라
+
+
+
