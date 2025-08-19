@@ -336,3 +336,30 @@ make_bird_fly(Penguin()) # 예외발생, LSP 위반
 ```
 - Bird 타입이면 다 날 수 있다고 fly()를 호출했으나 Penguin이 계약을 어김
 - 이렇게 되면 Bird를 사용하는 모든 코드에 펭귄을 예외 처리 해야함
+
+```python
+class Bird:
+    pass
+
+class FlyingBird(Bird):
+    def fly(self):
+        print('날 수 있음')
+
+class NonFlyingBird(Bird):
+    def walk(self):
+        print('걷기만 함')
+
+class Penguin(NonFlyingBird):
+    def walk(self):
+        return super().walk()
+
+class Eagle(FlyingBird):
+    pass
+
+def make_bird_fly(bird: FlyingBird):
+    bird.fly()  # 이제 무조건 날 수 있는 새만 받음
+
+make_bird_fly(Eagle())  # 정상
+make_bird_fly(Penguin())  # 컴파일/런타임 전부터 걸러짐
+```
+- 이렇게 하면 날 수 있는 새와 날 수 없는 새가 구분되어 함수가 잘못된 객체를 받는 상황이 사라짐
