@@ -14,4 +14,9 @@ DHCP는 기기(Client)와 서버(Server) 사이에서 **DORA** 라는 4단계 �
 
 1. **Discover (발견)**
    - 기기가 네트워크에 연결되자마자 IP 줄 사람이 있는지 브로드캐스트 요청
-2. 
+2. **Offer (제안)**
+   - DHCP 서버가 응답 : `192.168.0.10` 이라는 IP를 줄게
+3. **Request (응답)**
+   - Client가 "그 IP를 사용" 이라고 Server에 알림
+4. **Acknowledge (승인)**
+   - Server가 최종적으로 `192.168.0.10` 으로 승인
