@@ -11,3 +11,7 @@ DNS는 트리 구조로 되어 있고, 각 노드를 **label** 이라 부름
 - TLD(Top-Level Domanin) : `com`,`net`,`kr`,`org` ....
 - SLD : `google` (`google.com`)
 - 호스트명(서브 도메인) : `www.google.com.` 처럼 점으로 구분, 마지막 점은 루트를 의미
+## 권위(Authoritative)
+- 권한 있는 네임서버(Authoritative NS) : 특정 존(zone)의 정답을 최종 권위로 가지고 있는 서버
+- 존(Zone) : 어떤 도메인 부분에 연속된 네임스페이스으 단위, 위임(delegation)으로 하위 존을 따로 운영할 수 있다.
+  예) `example.com`을 운영하는 NS가 `api.example.com`을 다른 팀 NS로 위임
