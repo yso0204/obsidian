@@ -37,6 +37,6 @@ DNS는 트리 구조로 되어 있고, 각 노드를 **label** 이라 부름
 	- `example.com` 존을 관리한다면, `www.example.com` , `mail.example.com` 같은 서브도메인의 레코드를 직접 넣을 수 있음
 	- 하지만, 특정 서브 도메인(`api.example.com`)은 다른 팀에 맡기고 싶을 수 있는데, 이걸 위임(delegation) 이라고 한다.
 - 예를 들어, A라는 회사가 `example.com` 도메인을 가지고 있고, A의 DNS 팀에서 `example.com` 존을 운영중 -> 이게 Authoritative NS
-- 하지만, API 서버는 별도 팀이 관리
-  그래서, `api.example.com` 이라는 서브 도메인은 A 메인 DNS가 아닌 다른 팀 네임서버에 위임할 수 있다.
-- 즉, `api.example.com` 의 IP를 누군가가 묻는다면 `example.com` Authoritative NS는 ㄷ
+	- 하지만, API 서버는 별도 팀이 관리
+	  그래서, `api.example.com` 이라는 서브 도메인은 A 메인 DNS가 아닌 다른 팀 네임서버에 위임할 수 있다.
+	- 즉, `api.example.com` 의 IP를 누군가가 묻는다면 `example.com` Authoritative NS는 저쪽 팀 NS에게 물어보라고 위임정보를 주고, 해당 IP는 `api.example.com` Authoritative NS가 준다.
