@@ -33,4 +33,10 @@
 
 
 ## NAT 환경에서의 외부 접근(Port Forwarding)
-> NAT는 보안상 
+> NAT는 보안상 내부에서 외부로의 요청만 허용하고, 외부에서 내부로 들어오는 것은 차단함(Table기록이 없기 때문)
+
+- Port Forwarding : 특정 포트로 들어오는 요청을 내부의 특정 사설 IP로 보내주도록 설정
+- DMZ(Demilitarized Zone) : 특정 내부 PC의 모든 포트를 외부에 개방하는 설정
+
+## NAT의 한계와 극복(NAT Traversal)
+P2P
