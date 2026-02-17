@@ -39,4 +39,9 @@
 - DMZ(Demilitarized Zone) : 특정 내부 PC의 모든 포트를 외부에 개방하는 설정
 
 ## NAT의 한계와 극복(NAT Traversal)
-P2P
+P2P 통신(게임, 화상회의) 등 양방향 통신이 필요한 경우, 서로 NAT 뒤에 숨어있어 연결이 어렵다.
+이를 위해 아래 기술들이 있다.
+
+- STUN(Session Traversal Utilities for NAT) : 자신의 공인 IP와 포트 정보를 알아내기 위한 서버
+- TURN(Traversal Using Relays around NAT) : NAT 통과가 불가능할 때 데이터를 중계해주는 서버
+- UPnP : 기기가 자동으로 공유기 포트를 열고 닫도록 하는 프로토콜
